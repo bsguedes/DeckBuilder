@@ -1,126 +1,126 @@
-number;code;name;shaman
-1;XY10;Shuckle;R$ 0,48
-2;XY10;Burmy;R$ 0,48
-3;XY10;Wormadam;R$ 0,95
-4;XY10;Mothim;R$ 2,39
-5;XY10;Snivy;R$ 0,48
-6;XY10;Servine;R$ 0,95
-7;XY10;Serperior;R$ 1,99
-8;XY10;Deerling;R$ 0,48
-9;XY10;Moltres;R$ 3,19
-10;XY10;Fennekin;R$ 0,48
-11;XY10;Fennekin;R$ 0,48
-12;XY10;Braixen;R$ 0,79
-13;XY10;Delphox;R$ 9,19
-14;XY10;Delphox BREAK;R$ 19,99
-15;XY10;Seel;R$ 0,48
-16;XY10;Dewgong;R$ 0,79
-17;XY10;Omanyte;R$ 0,95
-18;XY10;Omastar;R$ 2,79
-19;XY10;Omastar BREAK;R$ 20,79
-20;XY10;Glaceon-EX;R$ 43,99
-21;XY10;White Kyurem;R$ 8,79
-22;XY10;Binacle;R$ 0,48
-23;XY10;Barbaracle;R$ 3,19
-24;XY10;Rotom;R$ 1,99
-25;XY10;Alakazam-EX;R$ 39,99
-26;XY10;M Alakazam-EX;R$ 58,39
-27;XY10;Koffing;R$ 0,48
-28;XY10;Weezing;R$ 0,95
-29;XY10;Mew;R$ 39,99
-30;XY10;Spoink;R$ 0,48
-31;XY10;Grumpig;R$ 1,99
-32;XY10;Gothita;R$ 0,48
-33;XY10;Solosis;R$ 0,48
-34;XY10;Duosion;R$ 0,79
-35;XY10;Reuniclus;R$ 1,99
-36;XY10;Diglett;R$ 0,48
-37;XY10;Marowak;R$ 3,19
-38;XY10;Kabuto;R$ 0,95
-39;XY10;Kabutops;R$ 1,83
-40;XY10;Larvitar;R$ 0,48
-41;XY10;Larvitar;R$ 0,48
-42;XY10;Pupitar;R$ 0,48
-43;XY10;Regirock-EX;R$ 51,99
-44;XY10;Wormadam;R$ 0,95
-45;XY10;Riolu;R$ 0,48
-46;XY10;Riolu;R$ 0,48
-47;XY10;Lucario;R$ 1,59
-48;XY10;Hawlucha;R$ 0,95
-49;XY10;Carbink;R$ 4,79
-50;XY10;Carbink;R$ 2,08
-51;XY10;Carbink BREAK;R$ 50,39
-52;XY10;Zygarde;R$ 1,19
-53;XY10;Zygarde;R$ 3,59
-54;XY10;Zygarde-EX;R$ 51,99
-55;XY10;Umbreon-EX;R$ 35,19
-56;XY10;Tyranitar;R$ 10,39
-57;XY10;Vullaby;R$ 0,48
-58;XY10;Mandibuzz;R$ 1,83
-59;XY10;Wormadam;R$ 0,95
-60;XY10;Bronzor;R$ 0,48
-61;XY10;Bronzong;R$ 2,79
-62;XY10;Bronzong BREAK;R$ 42,39
-63;XY10;Lucario;R$ 10,39
-64;XY10;Genesect-EX;R$ 31,99
-65;XY10;Jigglypuff;R$ 0,48
-66;XY10;Wigglytuff;R$ 0,95
-67;XY10;Mr. Mime;R$ 1,59
-68;XY10;Snubbull;R$ 0,48
-69;XY10;M Altaria-EX;R$ 27,99
-70;XY10;Cottonee;R$ 0,48
-71;XY10;Whimsicott;R$ 0,95
-72;XY10;Diancie-EX;R$ 19,99
-73;XY10;Kingdra-EX;R$ 29,59
-74;XY10;Meowth;R$ 0,48
-75;XY10;Kangaskhan;R$ 0,95
-76;XY10;Aerodactyl;R$ 2,39
-77;XY10;Snorlax;R$ 1,99
-78;XY10;Lugia;R$ 9,59
-79;XY10;Lugia BREAK;R$ 27,99
-80;XY10;Whismur;R$ 0,48
-81;XY10;Loudred;R$ 0,95
-82;XY10;Exploud;R$ 1,59
-83;XY10;Altaria-EX;R$ 23,99
-84;XY10;Audino-EX;R$ 25,59
-85;XY10;M Audino-EX;R$ 35,99
-86;XY10;Minccino;R$ 0,48
-87;XY10;Minccino;R$ 0,48
-88;XY10;Cinccino;R$ 1,19
-89;XY10;Cinccino;R$ 1,19
-90;XY10;Alakazam Spirit Link;R$ 1,19
-91;XY10;Altaria Spirit Link;R$ 1,19
-92;XY10;Audino Spirit Link;R$ 1,19
-93;XY10;Bent Spoon;R$ 3,11
-94;XY10;Chaos Tower;R$ 3,91
-95;XY10;Devolution Spray;R$ 3,99
-96;XY10;Dome Fossil Kabuto;R$ 1,19
-97;XY10;Energy Pouch;R$ 3,99
-98;XY10;Energy Reset;R$ 3,59
-99;XY10;Fairy Drop;R$ 2,79
-100;XY10;Fairy Garden;R$ 3,19
-101;XY10;Fossil Excavation Kit;R$ 2,71
-102;XY10;Helix Fossil Omanyte;R$ 1,19
-103;XY10;Lass's Special;R$ 3,99
-104;XY10;Mega Catcher;R$ 3,19
-105;XY10;N;R$ 6,79
-106;XY10;Old Amber Aerodactyl;R$ 1,19
-107;XY10;Pokemon Fan Club;R$ 1,99
-108;XY10;Power Memory;R$ 1,99
-109;XY10;Random Receiver;R$ 3,19
-110;XY10;Scorched Earth;R$ 3,99
-111;XY10;Shauna;R$ 2,79
-112;XY10;Team Rocket's Handiwork;R$ 3,99
-113;XY10;Ultra Ball;R$ 2,79
-114;XY10;Double Colorless Energy;R$ 7,99
-115;XY10;Strong Energy;R$ 7,99
-116;XY10;Glaceon-EX;R$ 61,59
-117;XY10;Alakazam-EX;R$ 59,99
-118;XY10;M Alakazam-EX;R$ 75,99
-119;XY10;Umbreon-EX;R$ 49,59
-120;XY10;Genesect-EX;R$ 51,99
-121;XY10;M Altaria-EX;R$ 49,59
-122;XY10;Kingdra-EX;R$ 43,99
-123;XY10;Altaria-EX;R$ 39,99
-124;XY10;Team Rocket's Handiwork;R$ 43,99
-125;XY10;Alakazam-EX;R$ 75,99
+number;code;name
+1;XY10;Shuckle
+2;XY10;Burmy
+3;XY10;Wormadam
+4;XY10;Mothim
+5;XY10;Snivy
+6;XY10;Servine
+7;XY10;Serperior
+8;XY10;Deerling
+9;XY10;Moltres
+10;XY10;Fennekin
+11;XY10;Fennekin
+12;XY10;Braixen
+13;XY10;Delphox
+14;XY10;Delphox BREAK
+15;XY10;Seel
+16;XY10;Dewgong
+17;XY10;Omanyte
+18;XY10;Omastar
+19;XY10;Omastar BREAK
+20;XY10;Glaceon-EX
+21;XY10;White Kyurem
+22;XY10;Binacle
+23;XY10;Barbaracle
+24;XY10;Rotom
+25;XY10;Alakazam-EX
+26;XY10;M Alakazam-EX
+27;XY10;Koffing
+28;XY10;Weezing
+29;XY10;Mew
+30;XY10;Spoink
+31;XY10;Grumpig
+32;XY10;Gothita
+33;XY10;Solosis
+34;XY10;Duosion
+35;XY10;Reuniclus
+36;XY10;Diglett
+37;XY10;Marowak
+38;XY10;Kabuto
+39;XY10;Kabutops
+40;XY10;Larvitar
+41;XY10;Larvitar
+42;XY10;Pupitar
+43;XY10;Regirock-EX
+44;XY10;Wormadam
+45;XY10;Riolu
+46;XY10;Riolu
+47;XY10;Lucario
+48;XY10;Hawlucha
+49;XY10;Carbink
+50;XY10;Carbink
+51;XY10;Carbink BREAK
+52;XY10;Zygarde
+53;XY10;Zygarde
+54;XY10;Zygarde-EX
+55;XY10;Umbreon-EX
+56;XY10;Tyranitar
+57;XY10;Vullaby
+58;XY10;Mandibuzz
+59;XY10;Wormadam
+60;XY10;Bronzor
+61;XY10;Bronzong
+62;XY10;Bronzong BREAK
+63;XY10;Lucario
+64;XY10;Genesect-EX
+65;XY10;Jigglypuff
+66;XY10;Wigglytuff
+67;XY10;Mr. Mime
+68;XY10;Snubbull
+69;XY10;M Altaria-EX
+70;XY10;Cottonee
+71;XY10;Whimsicott
+72;XY10;Diancie-EX
+73;XY10;Kingdra-EX
+74;XY10;Meowth
+75;XY10;Kangaskhan
+76;XY10;Aerodactyl
+77;XY10;Snorlax
+78;XY10;Lugia
+79;XY10;Lugia BREAK
+80;XY10;Whismur
+81;XY10;Loudred
+82;XY10;Exploud
+83;XY10;Altaria-EX
+84;XY10;Audino-EX
+85;XY10;M Audino-EX
+86;XY10;Minccino
+87;XY10;Minccino
+88;XY10;Cinccino
+89;XY10;Cinccino
+90;XY10;Alakazam Spirit Link
+91;XY10;Altaria Spirit Link
+92;XY10;Audino Spirit Link
+93;XY10;Bent Spoon
+94;XY10;Chaos Tower
+95;XY10;Devolution Spray
+96;XY10;Dome Fossil Kabuto
+97;XY10;Energy Pouch
+98;XY10;Energy Reset
+99;XY10;Fairy Drop
+100;XY10;Fairy Garden
+101;XY10;Fossil Excavation Kit
+102;XY10;Helix Fossil Omanyte
+103;XY10;Lass's Special
+104;XY10;Mega Catcher
+105;XY10;N
+106;XY10;Old Amber Aerodactyl
+107;XY10;Pokemon Fan Club
+108;XY10;Power Memory
+109;XY10;Random Receiver
+110;XY10;Scorched Earth
+111;XY10;Shauna
+112;XY10;Team Rocket's Handiwork
+113;XY10;Ultra Ball
+114;XY10;Double Colorless Energy
+115;XY10;Strong Energy
+116;XY10;Glaceon-EX
+117;XY10;Alakazam-EX
+118;XY10;M Alakazam-EX
+119;XY10;Umbreon-EX
+120;XY10;Genesect-EX
+121;XY10;M Altaria-EX
+122;XY10;Kingdra-EX
+123;XY10;Altaria-EX
+124;XY10;Team Rocket's Handiwork
+125;XY10;Alakazam-EX

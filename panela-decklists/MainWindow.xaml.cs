@@ -24,26 +24,23 @@ namespace Decklists
         public MainWindow()
         {
             InitializeComponent();
+            Static.Loader.LoadDatabase();                        
+            Static.Loader.LoadStaticInfo();
+            Static.Database.Instance.SaveToJSON();
         }
 
         private void Button_Click( object sender, RoutedEventArgs e )
-        {
-            Static.Loader.Load();
+        {            
             Decklists.Providers.PkmnCards pkmnCards = new Providers.PkmnCards();
-            
-          //  Decklists.Providers.ShamanGames shaman = new Providers.ShamanGames();
-          //  shaman.ProviderDownloaded += providerDownloaded;
-
-            Decklists.Providers.EpicGame eg = new Decklists.Providers.EpicGame();
-            eg.ProviderDownloaded += providerDownloaded;
-            eg.DownloadCollection( Static.Loader.Collections.First() );
+            pkmnCards.ProviderDownloaded += _providerDownloaded;
+            pkmnCards.DownloadCollection(Static.Database.Instance.Collections.First());
         }
 
-        void providerDownloaded( object sender, EventArgs e )
+        void _providerDownloaded( object sender, EventArgs e )
         {
             ProviderBase provider = sender as ProviderBase;
             provider.PersistData();
-            Static.Loader.Save();
+            Static.Database.Instance.SaveToJSON();
         }
     }
 }

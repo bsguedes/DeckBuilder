@@ -15,17 +15,19 @@ namespace Decklists.Providers
             get { return "epic"; }
         }
 
-        protected override string AssembleURL( Cards.Card card )
+        protected override uint UniqueID => Provider.EPIC;
+
+        protected override Uri AssembleURL( Card card )
         {
-            return string.Format( BASE_URL, card.Name, card.Index, card.Collection.MaxValue );
+            return new Uri( string.Format( BASE_URL, card.Name, card.Index, card.Collection.MaxValue ) );
         }
 
-        protected override void HandleHtmlCodeForProvider( Cards.Card card, string htmlCode )
+        protected override void HandleHtmlCodeForProvider( Card card, string htmlCode )
         {
             int start = htmlCode.IndexOf( "R$" );
             int comma = htmlCode.IndexOf( ",", start );
             string cost = htmlCode.Substring( start, comma + 3 - start );
-            this.Data.Add( card, cost );
+            this.Data.Add( card.UniqueID, cost );
             Console.WriteLine( "{0}: {1}", card, cost );
         }
     }

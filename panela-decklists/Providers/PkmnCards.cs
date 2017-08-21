@@ -11,14 +11,16 @@ namespace Decklists.Providers
     {
         string BASE_URL = "http://pkmncards.com/api/?q=";
 
-        protected override string AssembleURL( Cards.Card card )
+        protected override uint UniqueID => Providers.Provider.PKMN_CARDS;
+
+        protected override Uri AssembleURL( Card card )
         {
-            return string.Format( "{0}{1} {2} {3}", BASE_URL, card.Name, card.Collection.Name, card.Index );
+            return new Uri( string.Format( "{0}{1} {2} {3}", BASE_URL, card.Name, card.Collection.Name, card.Index ).Replace(" ", "+") );
         }
 
-        protected override void HandleHtmlCodeForProvider( Cards.Card card, string htmlCode )
+        protected override void HandleHtmlCodeForProvider( Card card, string htmlCode )
         {
-            int start = htmlCode.IndexOf( "http://pkmncards.com" );
+            int start = htmlCode.IndexOf( "https://pkmncards.com" );
             int end = htmlCode.IndexOf( ".jpg" ) + 4;
             string imgURL = htmlCode.Substring( start, end - start );
             string fileName = card.Index.ToString( "D3" ) + ".jpg";
@@ -26,12 +28,12 @@ namespace Decklists.Providers
             {
                 client.DownloadFile( imgURL, fileName );
             }
-            this.Data.Add( card, fileName );
+            this.Data.Add( card.UniqueID, fileName );
         }
 
         protected override string CategoryTitle
         {
             get { return "pkmncards"; }
-        }
+        }        
     }
 }

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.26730.8
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "decklists", "decklists\decklists.csproj", "{7E2781B1-43D9-41E3-B3D1-E3978CD578DB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "scripts", "scripts\scripts.csproj", "{BBE53249-C66D-4BCC-93F0-BDADFDA1EAF8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{7E2781B1-43D9-41E3-B3D1-E3978CD578DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E2781B1-43D9-41E3-B3D1-E3978CD578DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E2781B1-43D9-41E3-B3D1-E3978CD578DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BBE53249-C66D-4BCC-93F0-BDADFDA1EAF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BBE53249-C66D-4BCC-93F0-BDADFDA1EAF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BBE53249-C66D-4BCC-93F0-BDADFDA1EAF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BBE53249-C66D-4BCC-93F0-BDADFDA1EAF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

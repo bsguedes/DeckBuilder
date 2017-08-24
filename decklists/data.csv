@@ -1,126 +1,295 @@
-number;code;name
-1;XY10;Shuckle
-2;XY10;Burmy
-3;XY10;Wormadam
-4;XY10;Mothim
-5;XY10;Snivy
-6;XY10;Servine
-7;XY10;Serperior
-8;XY10;Deerling
-9;XY10;Moltres
-10;XY10;Fennekin
-11;XY10;Fennekin
-12;XY10;Braixen
-13;XY10;Delphox
-14;XY10;Delphox BREAK
-15;XY10;Seel
-16;XY10;Dewgong
-17;XY10;Omanyte
-18;XY10;Omastar
-19;XY10;Omastar BREAK
-20;XY10;Glaceon-EX
-21;XY10;White Kyurem
-22;XY10;Binacle
-23;XY10;Barbaracle
-24;XY10;Rotom
-25;XY10;Alakazam-EX
-26;XY10;M Alakazam-EX
-27;XY10;Koffing
-28;XY10;Weezing
-29;XY10;Mew
-30;XY10;Spoink
-31;XY10;Grumpig
-32;XY10;Gothita
-33;XY10;Solosis
-34;XY10;Duosion
-35;XY10;Reuniclus
-36;XY10;Diglett
-37;XY10;Marowak
-38;XY10;Kabuto
-39;XY10;Kabutops
-40;XY10;Larvitar
-41;XY10;Larvitar
-42;XY10;Pupitar
-43;XY10;Regirock-EX
-44;XY10;Wormadam
-45;XY10;Riolu
-46;XY10;Riolu
-47;XY10;Lucario
-48;XY10;Hawlucha
-49;XY10;Carbink
-50;XY10;Carbink
-51;XY10;Carbink BREAK
-52;XY10;Zygarde
-53;XY10;Zygarde
-54;XY10;Zygarde-EX
-55;XY10;Umbreon-EX
-56;XY10;Tyranitar
-57;XY10;Vullaby
-58;XY10;Mandibuzz
-59;XY10;Wormadam
-60;XY10;Bronzor
-61;XY10;Bronzong
-62;XY10;Bronzong BREAK
-63;XY10;Lucario
-64;XY10;Genesect-EX
-65;XY10;Jigglypuff
-66;XY10;Wigglytuff
-67;XY10;Mr. Mime
-68;XY10;Snubbull
-69;XY10;M Altaria-EX
-70;XY10;Cottonee
-71;XY10;Whimsicott
-72;XY10;Diancie-EX
-73;XY10;Kingdra-EX
-74;XY10;Meowth
-75;XY10;Kangaskhan
-76;XY10;Aerodactyl
-77;XY10;Snorlax
-78;XY10;Lugia
-79;XY10;Lugia BREAK
-80;XY10;Whismur
-81;XY10;Loudred
-82;XY10;Exploud
-83;XY10;Altaria-EX
-84;XY10;Audino-EX
-85;XY10;M Audino-EX
-86;XY10;Minccino
-87;XY10;Minccino
-88;XY10;Cinccino
-89;XY10;Cinccino
-90;XY10;Alakazam Spirit Link
-91;XY10;Altaria Spirit Link
-92;XY10;Audino Spirit Link
-93;XY10;Bent Spoon
-94;XY10;Chaos Tower
-95;XY10;Devolution Spray
-96;XY10;Dome Fossil Kabuto
-97;XY10;Energy Pouch
-98;XY10;Energy Reset
-99;XY10;Fairy Drop
-100;XY10;Fairy Garden
-101;XY10;Fossil Excavation Kit
-102;XY10;Helix Fossil Omanyte
-103;XY10;Lass's Special
-104;XY10;Mega Catcher
-105;XY10;N
-106;XY10;Old Amber Aerodactyl
-107;XY10;Pokemon Fan Club
-108;XY10;Power Memory
-109;XY10;Random Receiver
-110;XY10;Scorched Earth
-111;XY10;Shauna
-112;XY10;Team Rocket's Handiwork
-113;XY10;Ultra Ball
-114;XY10;Double Colorless Energy
-115;XY10;Strong Energy
-116;XY10;Glaceon-EX
-117;XY10;Alakazam-EX
-118;XY10;M Alakazam-EX
-119;XY10;Umbreon-EX
-120;XY10;Genesect-EX
-121;XY10;M Altaria-EX
-122;XY10;Kingdra-EX
-123;XY10;Altaria-EX
-124;XY10;Team Rocket's Handiwork
-125;XY10;Alakazam-EX
+number;code;name;ecom
+1;XY10;Shuckle;
+2;XY10;Burmy;
+3;XY10;Wormadam;
+4;XY10;Mothim;
+5;XY10;Snivy;
+6;XY10;Servine;
+7;XY10;Serperior;
+8;XY10;Deerling;
+9;XY10;Moltres;
+10;XY10;Fennekin;
+11;XY10;Fennekin;
+12;XY10;Braixen;
+13;XY10;Delphox;
+14;XY10;Delphox BREAK;
+15;XY10;Seel;
+16;XY10;Dewgong;
+17;XY10;Omanyte;
+18;XY10;Omastar;
+19;XY10;Omastar BREAK;
+20;XY10;Glaceon-EX;
+21;XY10;White Kyurem;
+22;XY10;Binacle;
+23;XY10;Barbaracle;
+24;XY10;Rotom;
+25;XY10;Alakazam-EX;
+26;XY10;M Alakazam-EX;
+27;XY10;Koffing;
+28;XY10;Weezing;
+29;XY10;Mew;
+30;XY10;Spoink;
+31;XY10;Grumpig;
+32;XY10;Gothita;
+33;XY10;Solosis;
+34;XY10;Duosion;
+35;XY10;Reuniclus;
+36;XY10;Diglett;
+37;XY10;Marowak;
+38;XY10;Kabuto;
+39;XY10;Kabutops;
+40;XY10;Larvitar;
+41;XY10;Larvitar;
+42;XY10;Pupitar;
+43;XY10;Regirock-EX;
+44;XY10;Wormadam;
+45;XY10;Riolu;
+46;XY10;Riolu;
+47;XY10;Lucario;
+48;XY10;Hawlucha;
+49;XY10;Carbink;
+50;XY10;Carbink;
+51;XY10;Carbink BREAK;
+52;XY10;Zygarde;
+53;XY10;Zygarde;
+54;XY10;Zygarde-EX;
+55;XY10;Umbreon-EX;
+56;XY10;Tyranitar;
+57;XY10;Vullaby;
+58;XY10;Mandibuzz;
+59;XY10;Wormadam;
+60;XY10;Bronzor;
+61;XY10;Bronzong;
+62;XY10;Bronzong BREAK;
+63;XY10;Lucario;
+64;XY10;Genesect-EX;
+65;XY10;Jigglypuff;
+66;XY10;Wigglytuff;
+67;XY10;Mr. Mime;
+68;XY10;Snubbull;
+69;XY10;M Altaria-EX;
+70;XY10;Cottonee;
+71;XY10;Whimsicott;
+72;XY10;Diancie-EX;
+73;XY10;Kingdra-EX;
+74;XY10;Meowth;
+75;XY10;Kangaskhan;
+76;XY10;Aerodactyl;
+77;XY10;Snorlax;
+78;XY10;Lugia;
+79;XY10;Lugia BREAK;
+80;XY10;Whismur;
+81;XY10;Loudred;
+82;XY10;Exploud;
+83;XY10;Altaria-EX;
+84;XY10;Audino-EX;
+85;XY10;M Audino-EX;
+86;XY10;Minccino;
+87;XY10;Minccino;
+88;XY10;Cinccino;
+89;XY10;Cinccino;
+90;XY10;Alakazam Spirit Link;
+91;XY10;Altaria Spirit Link;
+92;XY10;Audino Spirit Link;
+93;XY10;Bent Spoon;
+94;XY10;Chaos Tower;
+95;XY10;Devolution Spray;
+96;XY10;Dome Fossil Kabuto;
+97;XY10;Energy Pouch;
+98;XY10;Energy Reset;
+99;XY10;Fairy Drop;
+100;XY10;Fairy Garden;
+101;XY10;Fossil Excavation Kit;
+102;XY10;Helix Fossil Omanyte;
+103;XY10;Lass's Special;
+104;XY10;Mega Catcher;
+105;XY10;N;
+106;XY10;Old Amber Aerodactyl;
+107;XY10;Pokemon Fan Club;
+108;XY10;Power Memory;
+109;XY10;Random Receiver;
+110;XY10;Scorched Earth;
+111;XY10;Shauna;
+112;XY10;Team Rocket's Handiwork;
+113;XY10;Ultra Ball;
+114;XY10;Double Colorless Energy;
+115;XY10;Strong Energy;
+116;XY10;Glaceon-EX;
+117;XY10;Alakazam-EX;
+118;XY10;M Alakazam-EX;
+119;XY10;Umbreon-EX;
+120;XY10;Genesect-EX;
+121;XY10;M Altaria-EX;
+122;XY10;Kingdra-EX;
+123;XY10;Altaria-EX;
+124;XY10;Team Rocket's Handiwork;
+125;XY10;Alakazam-EX;
+1;SM3;Caterpie;
+2;SM3;Metapod;
+3;SM3;Butterfree;
+4;SM3;Oddish;
+5;SM3;Gloom;
+6;SM3;Vileplume;
+7;SM3;Tangela;
+8;SM3;Tangrowth;
+9;SM3;Ledyba;
+10;SM3;Ledian;
+11;SM3;Heracross;
+12;SM3;Pansage;
+13;SM3;Simisage;
+14;SM3;Dewpider;
+15;SM3;Araquanid;
+16;SM3;Wimpod;
+17;SM3;Golisopod;
+18;SM3;Charmander;
+19;SM3;Charmeleon;
+20;SM3;Charizard;
+21;SM3;Ho-Oh;
+22;SM3;Pansear;
+23;SM3;Simisear;
+24;SM3;Heatmor;
+25;SM3;Salazzle;
+26;SM3;Turtonator;
+27;SM3;Alolan Vulpix;
+28;SM3;Alolan Ninetales;
+29;SM3;Horsea;
+30;SM3;Seadra;
+31;SM3;Kingdra;
+32;SM3;Magikarp;
+33;SM3;Gyarados;
+34;SM3;Marill;
+35;SM3;Azumarill;
+36;SM3;Panpour;
+37;SM3;Simipour;
+38;SM3;Bruxish;
+39;SM3;Tapu Fini;
+40;SM3;Pikachu;
+41;SM3;Raichu;
+42;SM3;Electabuzz;
+43;SM3;Electivire;
+44;SM3;Tynamo;
+45;SM3;Eelektrik;
+46;SM3;Eelektross;
+47;SM3;Togedemaru;
+48;SM3;Slowking;
+49;SM3;Wobbuffet;
+50;SM3;Seviper;
+51;SM3;Duskull;
+52;SM3;Dusclops;
+53;SM3;Dusknoir;
+54;SM3;Croagunk;
+55;SM3;Toxicroak;
+56;SM3;Venipede;
+57;SM3;Whirlipede;
+58;SM3;Scolipede;
+59;SM3;Espurr;
+60;SM3;Meowstic;
+61;SM3;Sandygast;
+62;SM3;Palossand;
+63;SM3;Necrozma;
+64;SM3;Machamp;
+65;SM3;Rhyhorn;
+66;SM3;Rhydon;
+67;SM3;Rhyperior;
+68;SM3;Lunatone;
+69;SM3;Solrock;
+70;SM3;Riolu;
+71;SM3;Lucario;
+72;SM3;Sawk;
+73;SM3;Crabrawler;
+74;SM3;Crabominable;
+75;SM3;Lycanroc;
+76;SM3;Lycanroc;
+77;SM3;Mudbray;
+78;SM3;Mudsdale;
+79;SM3;Passimian;
+80;SM3;Marshadow;
+81;SM3;Alolan Rattata;
+82;SM3;Alolan Raticate;
+83;SM3;Alolan Grimer;
+84;SM3;Alolan Muk;
+85;SM3;Sneasel;
+86;SM3;Weavile;
+87;SM3;Darkrai;
+88;SM3;Darkrai;
+89;SM3;Inkay;
+90;SM3;Malamar;
+91;SM3;Ralts;
+92;SM3;Kirlia;
+93;SM3;Gardevoir;
+94;SM3;Diancie;
+95;SM3;Cutiefly;
+96;SM3;Ribombee;
+97;SM3;Morelull;
+98;SM3;Shiinotic;
+99;SM3;Noivern;
+100;SM3;Zygarde;
+101;SM3;Meowth;
+102;SM3;Persian;
+103;SM3;Porygon;
+104;SM3;Porygon2;
+105;SM3;Porygon-Z;
+106;SM3;Hoothoot;
+107;SM3;Noctowl;
+108;SM3;Bouffalant;
+109;SM3;Noibat;
+110;SM3;Stufful;
+111;SM3;Bewear;
+112;SM3;Acerola;4371
+113;SM3;Bodybuilding Dumbbells;4374
+114;SM3;Escape Rope;1278
+115;SM3;Guzma;4379
+116;SM3;Kiawe;
+117;SM3;Lana;
+118;SM3;Mount Lanakila;
+119;SM3;Olivia;
+120;SM3;Plumeria;
+121;SM3;Po Town;
+122;SM3;Rotom Dex Poké Finder Mode;
+123;SM3;Sophocles;
+124;SM3;Super Scoop Up;
+125;SM3;Tormenting Spray;
+126;SM3;Weakness Policy;
+127;SM3;Wicke;
+128;SM3;Wishful Baton;
+129;SM3;Golisopod;
+130;SM3;Tapu Bulu;
+131;SM3;Ho-Oh;
+132;SM3;Salazzle;
+133;SM3;Tapu Fini;
+134;SM3;Necrozma;
+135;SM3;Machamp;
+136;SM3;Lycanroc;
+137;SM3;Marshadow;
+138;SM3;Alolan Muk;
+139;SM3;Darkrai;
+140;SM3;Gardevoir;
+141;SM3;Noivern;
+142;SM3;Acerola;4371
+143;SM3;Guzma;4379
+144;SM3;Kiawe;
+145;SM3;Plumeria;
+146;SM3;Sophocles;
+147;SM3;Wicke;
+148;SM3;Golisopod;
+149;SM3;Tapu Bulu;
+150;SM3;Charizard;
+151;SM3;Salazzle;
+152;SM3;Tapu Fini;
+153;SM3;Necrozma;
+154;SM3;Machamp;
+155;SM3;Lycanroc;
+156;SM3;Marshadow;
+157;SM3;Alolan Muk;
+158;SM3;Darkrai;
+159;SM3;Gardevoir;
+160;SM3;Noivern;
+161;SM3;Bodybuilding Dumbbells;
+162;SM3;Choice Band;
+163;SM3;Escape Rope;
+164;SM3;Multi Switch;
+165;SM3;Rescue Stretcher;
+166;SM3;Super Scoop Up;
+167;SM3;Fire Energy;
+168;SM3;Darkness Energy;
+169;SM3;Fairy Energy;

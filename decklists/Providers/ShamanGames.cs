@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Decklists.Providers
 {
-    public class ShamanGames : ProviderBase
+    public class PlaygroundStore : ProviderBase
     {
-        protected override uint UniqueID => Provider.SHAMAN;
+        protected override uint UniqueID => Provider.PLAYGROUND;
 
         string BASE_URL = "https://www.shamangamesba.com.br/loja?keyword={0}+{1}%2F{2}&search=true&view=category&option=com_virtuemart&virtuemart_category_id=0";
 

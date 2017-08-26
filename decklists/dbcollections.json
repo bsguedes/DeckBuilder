@@ -1,1 +1,29 @@
-﻿[]
+[
+  {
+    "id": 610,
+    "abbr": "XY10",
+    "name": "Fates Collide",
+    "max": 124,
+    "data": {
+      "collection_id_liga_magic": 96
+    }
+  },
+  {
+    "id": 611,
+    "abbr": "XY11",
+    "name": "Steam Siege",
+    "max": 114,
+    "data": {
+      "collection_id_liga_magic": 97
+    }
+  },
+  {
+    "id": 703,
+    "abbr": "SM3",
+    "name": "Burning Shadows",
+    "max": 147,
+    "data": {
+      "collection_id_liga_magic": 103
+    } 
+  }
+]

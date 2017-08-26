@@ -11,7 +11,7 @@ namespace Decklists.Providers
     public static class Provider
     {
         public static readonly uint PKMN_CARDS = 1;
-        public static readonly uint SHAMAN = 2;
+        public static readonly uint PLAYGROUND = 2;
         public static readonly uint EPIC = 3;
 
     }

@@ -57,6 +57,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Cards\Quotation.cs" />
+    <Compile Include="Providers\LigaMagicProvider.cs" />
     <Compile Include="Providers\EpicGame.cs" />
     <Compile Include="Providers\PkmnCards.cs" />
     <Compile Include="Providers\ProviderBase.cs" />

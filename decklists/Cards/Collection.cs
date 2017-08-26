@@ -22,12 +22,16 @@ namespace Decklists
         [DataMember(Name = "max")]
         public int MaxValue { get; private set; }
 
-        public Collection( string abrv, string name, int maxValue )
+        [DataMember(Name = "data")]
+        public Dictionary<string, string> Modifiers { get; private set; }
+
+        public Collection( uint id, string abrv, string name, int maxValue, Dictionary<string, string> data )
         {
+            this.UniqueID = id;
             this.Abbreviation = abrv;
             this.Name = name;
             this.MaxValue = maxValue;
-            this.UniqueID = (uint)string.Format("{0}|{1}|{2}", abrv, name, maxValue).GetHashCode();
+            this.Modifiers = data ?? new Dictionary<string, string>();            
         }
         
     }

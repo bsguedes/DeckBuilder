@@ -37,6 +37,10 @@ namespace scripts
             int start = data.IndexOf("<head><title>");
             int end = data.IndexOf("</title>");
             string r = data.Substring(start + 13, end - start - 25);
+            if (r.Contains("Break"))
+            {
+                r.Replace("Break", "BREAK");
+            }
             lock (this.Results)
             {
                 using (StreamWriter sw = new StreamWriter(file, true))

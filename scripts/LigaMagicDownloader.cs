@@ -9,19 +9,22 @@ using System.Threading.Tasks;
 namespace scripts
 {
     public class LigaMagicDownloader
-    {
-        readonly int MAXIMUM_CARDS = 4500;
-
+    {        
         public Dictionary<int, string> Results = new Dictionary<int, string>();
+        private int start;
+        private int end;
+        private string file;        
 
-        public LigaMagicDownloader()
+        public LigaMagicDownloader(int start, int end, string file)
         {
-
+            this.start = start;
+            this.end = end;
+            this.file = file;
         }
 
         public void Download()
         {
-            for (int i = 4200; i < MAXIMUM_CARDS; i++)
+            for (int i = start; i <= end; i++)
             {
                 RequestData(i, string.Format(@"http://chucktcg.com.br/?view=ecom/item&cardP={0}", i));
             }
@@ -34,9 +37,13 @@ namespace scripts
             int start = data.IndexOf("<head><title>");
             int end = data.IndexOf("</title>");
             string r = data.Substring(start + 13, end - start - 25);
+            if (r.Contains("Break"))
+            {
+                r.Replace("Break", "BREAK");
+            }
             lock (this.Results)
             {
-                using (StreamWriter sw = new StreamWriter("list.csv", true))
+                using (StreamWriter sw = new StreamWriter(file, true))
                 {
                     sw.WriteLine(string.Format("{0};{1}", index, r));
                 }

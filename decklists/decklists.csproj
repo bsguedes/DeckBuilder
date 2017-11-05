@@ -61,7 +61,7 @@
     <Compile Include="Providers\EpicGame.cs" />
     <Compile Include="Providers\PkmnCards.cs" />
     <Compile Include="Providers\ProviderBase.cs" />
-    <Compile Include="Providers\ShamanGames.cs" />
+    <Compile Include="Providers\PlaygroundGames.cs" />
     <Compile Include="Static\Loader.cs" />
     <Compile Include="Static\Database.cs" />
     <Page Include="MainWindow.xaml">

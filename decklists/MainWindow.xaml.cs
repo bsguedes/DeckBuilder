@@ -30,15 +30,25 @@ namespace Decklists
         }
 
         private void Button_Click( object sender, RoutedEventArgs e )
-        {            
-            Decklists.Providers.PkmnCards pkmnCards = new Providers.PkmnCards();
+        {
+            /*Decklists.Providers.PkmnCards pkmnCards = new Providers.PkmnCards();
             pkmnCards.ProviderDownloaded += _providerDownloaded;
-            pkmnCards.DownloadCollection(Static.Database.Instance.Collections.First());
+            pkmnCards.DownloadCollection(Static.Database.Instance.Collections.First());*/
+
+            EpicGame epic = new EpicGame();
+            epic.ProviderDownloaded += _providerDownloaded;
+            epic.DownloadCollection(Static.Database.Instance.Collections.First());
+
+            PlaygroundGames pg = new PlaygroundGames();
+            pg.ProviderDownloaded += _providerDownloaded;
+            pg.DownloadCollection(Static.Database.Instance.Collections.First());
+
         }
+        
 
         void _providerDownloaded( object sender, EventArgs e )
         {
-            ProviderBase provider = sender as ProviderBase;
+            LigaMagicProvider provider = sender as LigaMagicProvider;
             provider.PersistData();
             Static.Database.Instance.SaveToJSON();
         }

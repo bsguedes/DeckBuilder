@@ -16,6 +16,5 @@ namespace Decklists.Providers
         {
             get { return "shaman"; }
         }
-
     }
 }

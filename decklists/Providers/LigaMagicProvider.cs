@@ -25,32 +25,33 @@ namespace Decklists.Providers
             int currIndex = 0;
             int index = 0;
             List<float> prices = new List<float>();
-            while (index >= 0) {
-                try
+            while (index >= 0)
+            {
+                index = htmlCode.IndexOf("<td class='itemPreco hmin30", currIndex);
+                if (index > 0)
                 {
-                    index = htmlCode.IndexOf("<td class='itemPreco hmin30", currIndex);
-                    if (index > 0)
+                    int indexPrice = htmlCode.IndexOf(">", index) + 4;
+                    int endIndex = htmlCode.IndexOf("<", indexPrice);
+                    if (endIndex - indexPrice > 7)
                     {
-                        int indexPrice = htmlCode.IndexOf(">", index) + 4;
-                        int endIndex = htmlCode.IndexOf("<", indexPrice);
+                        // sale item
+                        index = htmlCode.IndexOf("<td class='itemPreco hmin30 ' title='Item com desconto", currIndex);
+                        if (index > 0)
+                        {
+                            indexPrice = htmlCode.IndexOf("<font color='red'>", index) + 21;
+                            endIndex = htmlCode.IndexOf("<", indexPrice);
+                            float price = float.Parse(new String(htmlCode.Skip(indexPrice).Take(endIndex - indexPrice).ToArray()));
+                            prices.Add(price);
+                            currIndex = endIndex;
+                        }
+                    }
+                    else
+                    {
                         float price = float.Parse(new String(htmlCode.Skip(indexPrice).Take(endIndex - indexPrice).ToArray()));
                         prices.Add(price);
                         currIndex = endIndex;
                     }
                 }
-                catch
-                {
-                    index = htmlCode.IndexOf("<td class='itemPreco hmin30 ' title='Item com desconto", currIndex);
-                    if (index > 0)
-                    {
-                        int indexPrice = htmlCode.IndexOf("<font color='red'>", index) + 21;
-                        int endIndex = htmlCode.IndexOf("<", indexPrice);
-                        float price = float.Parse(new String(htmlCode.Skip(indexPrice).Take(endIndex - indexPrice).ToArray()));
-                        prices.Add(price);
-                        currIndex = endIndex;
-                    }
-                }
-
             }
             if (prices.Count > 0)
             {

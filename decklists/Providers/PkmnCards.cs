@@ -9,9 +9,7 @@ namespace Decklists.Providers
 {
     public class PkmnCards : ProviderBase
     {
-        string BASE_URL = "http://pkmncards.com/api/?q=";
-
-        protected override uint UniqueID => Providers.Provider.PKMN_CARDS;
+        string BASE_URL = "http://pkmncards.com/api/?q=";        
 
         protected override Uri AssembleURL( Card card )
         {

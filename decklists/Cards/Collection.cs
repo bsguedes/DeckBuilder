@@ -33,6 +33,13 @@ namespace Decklists
             this.MaxValue = maxValue;
             this.Modifiers = data ?? new Dictionary<string, string>();            
         }
-        
+
+        public bool IsCheckedForDownload { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("{0} - {1}", Abbreviation, Name);
+        }
+
     }
 }

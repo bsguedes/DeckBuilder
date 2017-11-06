@@ -1,11 +1,67 @@
 ﻿<Window x:Class="Decklists.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:static="clr-namespace:Decklists.Static"      
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <StackPanel>
-            <Button Content="Download" Click="Button_Click"/>            
-        </StackPanel>
-        
-    </Grid>
+    <TabControl>
+        <TabItem Header="Prices">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="30"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="200"/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <ComboBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}" Margin="4"
+                      SelectionChanged="ComboBox_SelectionChanged"/>
+                    <ListView ItemsSource="{Binding FilteredCards}"
+                      SelectionChanged="ListView_SelectionChanged"
+                      SelectionMode="Single" Grid.Row="1"/>
+                    <ListView ItemsSource="{Binding FilteredQuotations}" Grid.Column="1" Grid.RowSpan="2"/>
+                </Grid>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Download">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition Height="30"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ListBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <CheckBox Content="{Binding}" IsChecked="{Binding IsCheckedForDownload}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <ListBox ItemsSource="{Binding Providers, Source={x:Static static:Database.Instance}}" Grid.Column="1">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel>
+                                <CheckBox Content="{Binding}" IsChecked="{Binding IsCheckedForDownload}"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+                <StackPanel Grid.Row="1" Margin="4">
+                    <Button Content="Download" Click="Button_Click"/>
+                </StackPanel>
+            </Grid>
+        </TabItem>
+    </TabControl>
+    
 </Window>

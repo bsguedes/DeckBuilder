@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
@@ -21,7 +22,11 @@ namespace Decklists.Providers
             int start = htmlCode.IndexOf( "https://pkmncards.com" );
             int end = htmlCode.IndexOf( ".jpg" ) + 4;
             string imgURL = htmlCode.Substring( start, end - start );
-            string fileName = card.Index.ToString( "D3" ) + ".jpg";
+            if (!Directory.Exists(string.Format("../../Images/{0}", card.Collection.Abbreviation)))
+            {
+                Directory.CreateDirectory(string.Format("../../Images/{0}", card.Collection.Abbreviation));
+            }
+            string fileName = "../../Images/" + card.Collection.Abbreviation + "/" + card.Index.ToString( "D3" ) + ".jpg";
             using ( WebClient client = new WebClient() )
             {
                 client.DownloadFile( imgURL, fileName );

@@ -5,6 +5,7 @@
 
 decklists/bin/
 decklists/obj/
+decklists/Images/*
 
 # User-specific files
 *.suo

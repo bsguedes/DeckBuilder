@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:static="clr-namespace:Decklists.Static"      
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="600" Width="925">
     <TabControl>
         <TabItem Header="Prices">
             <Grid>
@@ -18,14 +18,16 @@
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="200"/>
+                        <ColumnDefinition Width="350"/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <ComboBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}" Margin="4"
                       SelectionChanged="ComboBox_SelectionChanged"/>
+                    <Image Name="cardImage" Grid.Column="1" Grid.Row="1"/>
                     <ListView ItemsSource="{Binding FilteredCards}"
                       SelectionChanged="ListView_SelectionChanged"
                       SelectionMode="Single" Grid.Row="1"/>
-                    <ListView ItemsSource="{Binding FilteredQuotations}" Grid.Column="1" Grid.RowSpan="2"/>
+                    <ListView ItemsSource="{Binding FilteredQuotations}" Grid.Column="2" Grid.RowSpan="2"/>
                 </Grid>
             </Grid>
         </TabItem>

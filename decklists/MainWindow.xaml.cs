@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -82,6 +83,14 @@ namespace Decklists
                 foreach (Quotation q in new_quotes.OrderBy(x => x.ProviderID).ThenBy(x => x.Timestamp))
                 {
                     FilteredQuotations.Add(q);
+                }
+                string dir = string.Format("../../Images/{0}", (e.AddedItems[0] as Card).Collection.Abbreviation);
+                if (Directory.Exists(dir))
+                {
+                    string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0:D3}.jpg", (e.AddedItems[0] as Card).Index));
+                    Uri uri = new Uri(path);
+                    BitmapImage bitmap = new BitmapImage(uri);
+                    cardImage.Source = bitmap;
                 }
             }
         }

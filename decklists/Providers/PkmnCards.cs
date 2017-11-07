@@ -22,16 +22,23 @@ namespace Decklists.Providers
             int start = htmlCode.IndexOf( "https://pkmncards.com" );
             int end = htmlCode.IndexOf( ".jpg" ) + 4;
             string imgURL = htmlCode.Substring( start, end - start );
-            if (!Directory.Exists(string.Format("../../Images/{0}", card.Collection.Abbreviation)))
+            if (!Directory.Exists("Images"))
             {
-                Directory.CreateDirectory(string.Format("../../Images/{0}", card.Collection.Abbreviation));
+                Directory.CreateDirectory("Images");
             }
-            string fileName = "../../Images/" + card.Collection.Abbreviation + "/" + card.Index.ToString( "D3" ) + ".jpg";
-            using ( WebClient client = new WebClient() )
+            if (!Directory.Exists(string.Format("Images/{0}", card.Collection.Abbreviation)))
             {
-                client.DownloadFile( imgURL, fileName );
+                Directory.CreateDirectory(string.Format("Images/{0}", card.Collection.Abbreviation));
             }
-            this.Data.Add( card.UniqueID, fileName );
+            string fileName = "Images/" + card.Collection.Abbreviation + "/" + card.Index.ToString( "D3" ) + ".jpg";
+            if (!File.Exists(fileName))
+            {
+                using (WebClient client = new WebClient())
+                {
+                    client.DownloadFile(imgURL, fileName);
+                }
+                this.Data.Add(card.UniqueID, fileName);
+            }
         }
 
         protected override string CategoryTitle

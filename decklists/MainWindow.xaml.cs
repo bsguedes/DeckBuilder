@@ -43,8 +43,7 @@ namespace Decklists
 
         private void Button_Click( object sender, RoutedEventArgs e )
         {
-            btnDownload.IsEnabled = false;
-            pgbDownload.Value = 0;
+            btnDownload.IsEnabled = false;            
             foreach( ProviderDescriptor pd in Static.Database.Instance.Providers)
             {
                 if (pd.IsCheckedForDownload)
@@ -68,8 +67,7 @@ namespace Decklists
             ProviderBase provider = sender as ProviderBase;
             provider.PersistData();
             Static.Database.Instance.SaveToJSON();
-            btnDownload.IsEnabled = true;
-            pgbDownload.Value = 100;
+            btnDownload.IsEnabled = true;            
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

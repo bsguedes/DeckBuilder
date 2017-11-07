@@ -24,6 +24,33 @@
     "max": 147,
     "data": {
       "collection_id_liga_magic": 103
-    } 
+    }
+  },
+  {
+    "id": 701,
+    "abbr": "SM1",
+    "name": "Sun and Moon",
+    "max": 149,
+    "data": {
+      "collection_id_liga_magic": 100
+    }
+  },
+  {
+    "id": 702,
+    "abbr": "SM2",
+    "name": "Guardians Rising",
+    "max": 145,
+    "data": {
+      "collection_id_liga_magic": 102
+    }
+  },
+  {
+    "id": 612,
+    "abbr": "XY12",
+    "name": "Evolutions",
+    "max": 108,
+    "data": {
+      "collection_id_liga_magic": 99
+    }
   }
 ]

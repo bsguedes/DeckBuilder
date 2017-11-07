@@ -16,12 +16,14 @@ namespace Decklists.Static
         public List<Collection> Collections { get; private set; }
         public List<Card> Cards { get; private set; }
         public List<Quotation> Quotations { get; private set; }
+        public List<Providers.ProviderDescriptor> Providers { get; private set; }
 
         private Database()
         {
             this.Collections = new List<Collection>();
             this.Cards = new List<Card>();
             this.Quotations = new List<Quotation>();
+            this.Providers = new Providers.Provider().ProviderList;
         }
 
         private static Database _instance;

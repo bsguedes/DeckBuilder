@@ -36,5 +36,17 @@ namespace Decklists
         public long Timestamp { get; private set; }
        
         public Card Card => Static.Database.Instance.Cards.First(x => x.UniqueID == CardID);
+
+        public string ProviderName => Static.Database.Instance.Providers.First(x => x.ID == this.ProviderID).ToString();
+
+        public string FormattedValue => string.Format("R$ {0:F2}", float.Parse(Value));
+
+        public string FormattedDate => DateTime.FromFileTimeUtc(this.Timestamp).Date.ToShortDateString();
+
+        public override string ToString()
+        {
+            DateTime ts = DateTime.FromFileTimeUtc(this.Timestamp);
+            return string.Format("{0} - {1} ({2})", Static.Database.Instance.Providers.First(x => x.ID == this.ProviderID), this.Value, ts.Date.ToShortDateString());
+        }
     }
 }

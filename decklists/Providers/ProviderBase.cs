@@ -8,12 +8,40 @@ using System.Threading.Tasks;
 
 namespace Decklists.Providers
 {
-    public static class Provider
+    public class ProviderDescriptor
     {
-        public static readonly uint PKMN_CARDS = 1;
-        public static readonly uint PLAYGROUND = 2;
-        public static readonly uint EPIC = 3;
+        public string Name { get; }
+        public uint ID { get; }
+        public Type Type { get; }
 
+        public bool IsCheckedForDownload { get; set; }
+
+        public ProviderDescriptor(string name, uint id, Type type)
+        {
+            this.Name = name;
+            this.ID = id;
+            this.Type = type;
+        }
+
+        public override string ToString()
+        {
+            return Name;
+        }
+    }
+
+    public class Provider
+    {
+        public Provider()
+        {
+            this.ProviderList = new List<ProviderDescriptor>
+            {
+                new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards)),
+                new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames)),
+                new ProviderDescriptor("Epic Games", 3, typeof(EpicGame))
+            };
+        }
+        
+        public List<ProviderDescriptor> ProviderList { get; private set; }
     }
 
     public abstract class ProviderBase
@@ -25,7 +53,7 @@ namespace Decklists.Providers
             this.Data = new Dictionary<uint, string>();
         }
 
-        protected abstract uint UniqueID { get; }
+        protected uint UniqueID => Static.Database.Instance.Providers.First(x => x.Type == this.GetType()).ID;
 
         protected Dictionary<uint, string> Data { get; private set; }
         protected abstract string CategoryTitle { get; }

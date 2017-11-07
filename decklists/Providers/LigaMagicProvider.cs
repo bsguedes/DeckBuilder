@@ -9,9 +9,7 @@ namespace Decklists.Providers
     public abstract class LigaMagicProvider : ProviderBase
     {
         
-        protected abstract string LigaMagicProviderRootURL { get; }
-
-        protected override uint UniqueID => throw new NotImplementedException();
+        protected abstract string LigaMagicProviderRootURL { get; }       
 
         protected override string CategoryTitle => throw new NotImplementedException();
 

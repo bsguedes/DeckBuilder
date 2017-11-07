@@ -11,9 +11,7 @@ namespace Decklists.Providers
         protected override string CategoryTitle
         {
             get { return "epic"; }
-        }
-
-        protected override uint UniqueID => Provider.EPIC;
+        }        
 
         protected override string LigaMagicProviderRootURL => @"http://www.epicgame.com.br/";
     }

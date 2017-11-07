@@ -33,10 +33,12 @@ namespace Decklists.Providers
     {
         public Provider()
         {
-            this.ProviderList = new List<ProviderDescriptor>();
-            this.ProviderList.Add(new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards)));
-            this.ProviderList.Add(new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames)));
-            this.ProviderList.Add(new ProviderDescriptor("Epic Games", 3, typeof(EpicGame)));
+            this.ProviderList = new List<ProviderDescriptor>
+            {
+                new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards)),
+                new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames)),
+                new ProviderDescriptor("Epic Games", 3, typeof(EpicGame))
+            };
         }
         
         public List<ProviderDescriptor> ProviderList { get; private set; }

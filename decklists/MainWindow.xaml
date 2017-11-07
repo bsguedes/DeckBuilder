@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:static="clr-namespace:Decklists.Static"      
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="MainWindow" Height="600" Width="925">
+        Title="MainWindow" Height="600" Width="1025">
     <TabControl>
         <TabItem Header="Prices">
             <Grid>
@@ -11,24 +11,40 @@
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
-                <Grid Grid.Row="1">
-                    <Grid.RowDefinitions>
-                        <RowDefinition Height="30"/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="200"/>
-                        <ColumnDefinition Width="350"/>
-                        <ColumnDefinition/>
-                    </Grid.ColumnDefinitions>
-                    <ComboBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}" Margin="4"
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="300"/>
+                    <ColumnDefinition Width="350"/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <ComboBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}" Margin="4"
                       SelectionChanged="ComboBox_SelectionChanged"/>
-                    <Image Name="cardImage" Grid.Column="1" Grid.Row="1"/>
-                    <ListView ItemsSource="{Binding FilteredCards}"
+                <Image Name="cardImage" Grid.Column="1" Grid.Row="1"/>
+                <CheckBox Margin="5" VerticalAlignment="Center" IsChecked="{Binding OnlyRecentValue}" Grid.Column="2"
+                          Content="Only most recent value"/>
+                <ListView ItemsSource="{Binding FilteredCards}"
                       SelectionChanged="ListView_SelectionChanged"
                       SelectionMode="Single" Grid.Row="1"/>
-                    <ListView ItemsSource="{Binding FilteredQuotations}" Grid.Column="2" Grid.RowSpan="2"/>
-                </Grid>
+                <ListView ItemsSource="{Binding FilteredQuotations}" Grid.Column="2" Grid.RowSpan="2" Grid.Row="1">
+                    <ListView.ItemContainerStyle>
+                        <Style TargetType="ListViewItem">
+                            <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                        </Style>
+                    </ListView.ItemContainerStyle>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Width="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*"/>
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="0" Text="{Binding ProviderName}" Margin="5" VerticalAlignment="Center"/>
+                                <TextBlock Grid.Column="1" Text="{Binding FormattedDate}" Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="DarkGray"/>
+                                <TextBlock Grid.Column="2" Text="{Binding FormattedValue}" Margin="5" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="16"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Grid>
         </TabItem>
         <TabItem Header="Download">
@@ -41,6 +57,7 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
+                <ProgressBar Grid.Row="1" Grid.Column="1" Margin="7" Name="pgbDownload" Maximum="100" Minimum="0"/>
                 <ListBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>
@@ -60,10 +77,9 @@
                     </ListBox.ItemTemplate>
                 </ListBox>
                 <StackPanel Grid.Row="1" Margin="4">
-                    <Button Content="Download" Click="Button_Click"/>
+                    <Button Content="Download" Click="Button_Click" Name="btnDownload"/>
                 </StackPanel>
             </Grid>
         </TabItem>
     </TabControl>
-    
 </Window>

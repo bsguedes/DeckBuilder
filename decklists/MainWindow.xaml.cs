@@ -27,6 +27,8 @@ namespace Decklists
 
         public ObservableCollection<Card> FilteredCards { get; set; }
 
+        public bool OnlyRecentValue { get; set; }
+
         public MainWindow()
         {
             Static.Loader.LoadDatabase();                        
@@ -41,6 +43,8 @@ namespace Decklists
 
         private void Button_Click( object sender, RoutedEventArgs e )
         {
+            btnDownload.IsEnabled = false;
+            pgbDownload.Value = 0;
             foreach( ProviderDescriptor pd in Static.Database.Instance.Providers)
             {
                 if (pd.IsCheckedForDownload)
@@ -64,6 +68,8 @@ namespace Decklists
             ProviderBase provider = sender as ProviderBase;
             provider.PersistData();
             Static.Database.Instance.SaveToJSON();
+            btnDownload.IsEnabled = true;
+            pgbDownload.Value = 100;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -77,10 +83,15 @@ namespace Decklists
                     if (q.CardID == cid && q.ProviderID != Static.Database.Instance.Providers.First(x => typeof(PkmnCards) == x.Type).ID) 
                     {
                         new_quotes.Add(q);
+                        if ( OnlyRecentValue )
+                        {
+                            Quotation max = new_quotes.Where(x => x.ProviderID == q.ProviderID).OrderByDescending(y => y.Timestamp).First();
+                            new_quotes.RemoveAll(x => x.ProviderID == max.ProviderID && x.Timestamp < max.Timestamp);
+                        }                        
                     }
                 }
                 FilteredQuotations.Clear();
-                foreach (Quotation q in new_quotes.OrderBy(x => x.ProviderID).ThenBy(x => x.Timestamp))
+                foreach (Quotation q in new_quotes.OrderBy(x => float.Parse(x.Value)).ThenBy(x => x.ProviderID).ThenByDescending(x => x.Timestamp))
                 {
                     FilteredQuotations.Add(q);
                 }

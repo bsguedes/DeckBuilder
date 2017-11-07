@@ -37,6 +37,12 @@ namespace Decklists
        
         public Card Card => Static.Database.Instance.Cards.First(x => x.UniqueID == CardID);
 
+        public string ProviderName => Static.Database.Instance.Providers.First(x => x.ID == this.ProviderID).ToString();
+
+        public string FormattedValue => string.Format("R$ {0:F2}", float.Parse(Value));
+
+        public string FormattedDate => DateTime.FromFileTimeUtc(this.Timestamp).Date.ToShortDateString();
+
         public override string ToString()
         {
             DateTime ts = DateTime.FromFileTimeUtc(this.Timestamp);

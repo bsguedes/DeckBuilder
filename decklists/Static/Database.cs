@@ -42,7 +42,7 @@ namespace Decklists.Static
         public void ReloadFromJSON()
         {
             Collection[] db_collections = JsonConvert.DeserializeObject<Collection[]>(File.ReadAllText("dbcollections.json"));
-            this.Collections = db_collections.ToList();
+            this.Collections = db_collections.OrderByDescending(x => x.UniqueID).ToList();
 
             Card[] db_cards = JsonConvert.DeserializeObject<Card[]>(File.ReadAllText("dbcards.json"));
             this.Cards = db_cards.ToList();

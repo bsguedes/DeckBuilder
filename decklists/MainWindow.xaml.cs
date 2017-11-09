@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,29 @@ namespace Decklists
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {                
         public ObservableCollection<Quotation> FilteredQuotations { get; set; }
 
         public ObservableCollection<Card> FilteredCards { get; set; }
 
         public bool OnlyRecentValue { get; set; }
+
+        private int _percentage;      
+        public int DownloadProgressPercentage
+        {
+            get
+            {
+                return _percentage;
+            }
+            set
+            {
+                _percentage = value;
+                PropertyChanged(this, new PropertyChangedEventArgs("DownloadProgressPercentage"));
+            }
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
 
         public MainWindow()
         {
@@ -41,33 +58,45 @@ namespace Decklists
             InitializeComponent();
         }
 
-        private void Button_Click( object sender, RoutedEventArgs e )
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            btnDownload.IsEnabled = false;            
-            foreach( ProviderDescriptor pd in Static.Database.Instance.Providers)
+            btnDownload.IsEnabled = false;
+            DownloadProgressPercentage = 0;
+
+            List<ProviderBase> providers = new List<ProviderBase>();
+            List<Collection> collections = new List<Collection>();
+
+            foreach (ProviderDescriptor pd in Static.Database.Instance.Providers)
             {
                 if (pd.IsCheckedForDownload)
                 {
                     ProviderBase provider = (ProviderBase)Activator.CreateInstance(pd.Type);
-                    provider.ProviderDownloaded += _providerDownloaded;
-                    foreach (Collection c in Static.Database.Instance.Collections)
-                    {
-                        if (c.IsCheckedForDownload)
-                        {
-                            provider.DownloadCollection(c);
-                        }
-                    }
+                    providers.Add(provider);
                 }
             }
-        }
-        
+            foreach (Collection c in Static.Database.Instance.Collections)
+            {
+                if (c.IsCheckedForDownload)
+                {
+                    collections.Add(c);
+                }
+            }
 
-        void _providerDownloaded( object sender, EventArgs e )
+            DownloadManager dm = new DownloadManager();
+            dm.ProgressChanged += Dm_ProgressChanged;
+            dm.DownloadCompleted += Dm_DownloadCompleted;
+            dm.Download(providers, collections);
+        }
+
+        private void Dm_DownloadCompleted(object sender, EventArgs e)
         {
-            ProviderBase provider = sender as ProviderBase;
-            provider.PersistData();
             Static.Database.Instance.SaveToJSON();
-            btnDownload.IsEnabled = true;            
+            btnDownload.IsEnabled = true;
+        }
+
+        private void Dm_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
+        {
+            DownloadProgressPercentage = e.ProgressPercentage;
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)

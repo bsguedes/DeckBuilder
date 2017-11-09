@@ -57,7 +57,8 @@
                     <ColumnDefinition/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
-                <ProgressBar Grid.Row="1" Grid.Column="1" Margin="7" Name="pgbDownload" Maximum="100" Minimum="0"/>
+                <ProgressBar Grid.Row="1" Grid.Column="1" Margin="7" Name="pgbDownload" Maximum="100" Minimum="0"
+                             Value="{Binding DownloadProgressPercentage}"/>
                 <ListBox ItemsSource="{Binding Collections, Source={x:Static static:Database.Instance}}">
                     <ListBox.ItemTemplate>
                         <DataTemplate>

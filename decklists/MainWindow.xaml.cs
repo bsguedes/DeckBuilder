@@ -132,10 +132,17 @@ namespace Decklists
                 {
                     string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0:D3}.jpg", (e.AddedItems[0] as Card).Index));
                     Uri uri = new Uri(path);
-                    if (System.IO.File.Exists(path))
+                    if (File.Exists(path))
                     {
-                        BitmapImage bitmap = new BitmapImage(uri);
-                        cardImage.Source = bitmap;
+                        try
+                        {
+                            BitmapImage bitmap = new BitmapImage(uri);
+                            cardImage.Source = bitmap;
+                        }
+                        catch
+                        {
+                            cardImage.Source = null;
+                        }
                     }
                     else
                     {

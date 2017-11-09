@@ -83,8 +83,8 @@ namespace Decklists
             }
 
             DownloadManager dm = new DownloadManager();
-            dm.ProgressChanged += Dm_ProgressChanged;
-            dm.DownloadCompleted += Dm_DownloadCompleted;
+            dm.DownloadManagerProgressChanged += Dm_ProgressChanged;
+            dm.DownloadManagerCompleted += Dm_DownloadCompleted;
             dm.Download(providers, collections);
         }
 

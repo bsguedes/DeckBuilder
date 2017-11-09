@@ -47,8 +47,8 @@ namespace Decklists.Providers
 
     public class DownloadManager
     {
-        public event RunWorkerCompletedEventHandler DownloadCompleted;
-        public event ProgressChangedEventHandler ProgressChanged;
+        public event RunWorkerCompletedEventHandler DownloadManagerCompleted;
+        public event ProgressChangedEventHandler DownloadManagerProgressChanged;
 
         private int max_download = 0;
         private int current_download = 0;
@@ -61,16 +61,13 @@ namespace Decklists.Providers
                 p.ProgressChanged += (sender, e) =>
                 {
                     current_download++;
-                    ProgressChanged?.Invoke(this, new ProgressChangedEventArgs(current_download * 100 / max_download, null));
+                    DownloadManagerProgressChanged?.Invoke(this, new ProgressChangedEventArgs(current_download * 100 / max_download, null));
                     if(current_download == max_download)
                     {
-                        DownloadCompleted?.Invoke(this, new RunWorkerCompletedEventArgs(providers, null, false));
+                        DownloadManagerCompleted?.Invoke(this, new RunWorkerCompletedEventArgs(providers, null, false));
                     }
-                };                
-                foreach (Collection c in collections)
-                {                    
-                    p.DownloadCollection(c);
-                }
+                };
+                p.DownloadCollections(collections);
             }
         }
     }
@@ -92,23 +89,20 @@ namespace Decklists.Providers
         protected abstract Uri AssembleURL( Card card );
         protected abstract void HandleHtmlCodeForProvider( Card card, string htmlCode );        
         
-        BackgroundWorker bw_wait;
+        BackgroundWorker bw_download;
 
-        public void DownloadCollection(Collection collection)
+        public void DownloadCollections(IEnumerable<Collection> collections)
         {
-            var cardsFromCollection = Static.Database.Instance.Cards.Where(x => x.CollectionID == collection.UniqueID).OrderBy(y => y.Index);
+            var collectionIds = collections.Select(x => x.UniqueID);
+            var cardsFromCollection = Static.Database.Instance.Cards.Where(x => collectionIds.Contains( x.CollectionID )).OrderBy(x => x.CollectionID).ThenBy(y => y.Index);
             int expectation = cardsFromCollection.Count();
 
-            bw_wait = new BackgroundWorker()
-            {
-                WorkerReportsProgress = true, WorkerSupportsCancellation = true
-            };
+            bw_download = new BackgroundWorker();
 
-            bw_wait.DoWork += _bw_wait_DoWork;
-            bw_wait.ProgressChanged += _bw_wait_ProgressChanged;            
-            bw_wait.RunWorkerCompleted += _bw_wait_RunWorkerCompleted;
+            bw_download.DoWork += Bw_download_DoWork;        
+            bw_download.RunWorkerCompleted += Bw_download_RunWorkerCompleted;
 
-            bw_wait.RunWorkerAsync( expectation );
+            bw_download.RunWorkerAsync( expectation );
 
             foreach ( var card in cardsFromCollection)
             {
@@ -118,36 +112,34 @@ namespace Decklists.Providers
 
         int _expectations = 0;
         
-        void _bw_wait_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
+        void Bw_download_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
         {
             Console.WriteLine( "Done!" );
             ProviderDownloaded?.Invoke( this, new EventArgs() );            
         }
 
-        void _bw_wait_ProgressChanged( object sender, ProgressChangedEventArgs e )
-        {
-            _expectations--;
-            ProgressChanged?.Invoke(this, null );
-        }
-
-        void _bw_wait_DoWork( object sender, DoWorkEventArgs e )
+        void Bw_download_DoWork( object sender, DoWorkEventArgs e )
         {
             _expectations = ( int )e.Argument;            
             Console.WriteLine( "Started" );
-            while ( _expectations > 0 ) ;
+            while ( _expectations > 0 );
         }
 
         public void DownloadContentForCard( Card card )
         {
-            BackgroundWorker bw = new BackgroundWorker();
-            bw.DoWork += _bw_DoWork;
-            bw.RunWorkerCompleted += _bw_RunWorkerCompleted;
-            bw.RunWorkerAsync( card );
+            BackgroundWorker bw_card = new BackgroundWorker();
+            bw_card.DoWork += Bw_card_DoWork;
+            bw_card.RunWorkerCompleted += Bw_card_RunWorkerCompleted;
+            bw_card.RunWorkerAsync( card );
         }
 
-        void _bw_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
+        void Bw_card_RunWorkerCompleted( object sender, RunWorkerCompletedEventArgs e )
         {
-            try { bw_wait.ReportProgress(0); } catch { }
+            lock (this)
+            {
+                _expectations--;
+                ProgressChanged?.Invoke(this, null);
+            }
             if ( e.Error != null )
             {
                 Console.WriteLine( "Error downloading card {0}", e.Result );
@@ -158,7 +150,7 @@ namespace Decklists.Providers
             }            
         }
 
-        void _bw_DoWork( object sender, DoWorkEventArgs e )
+        void Bw_card_DoWork( object sender, DoWorkEventArgs e )
         {
             Card card = e.Argument as Card;
             try
@@ -174,7 +166,7 @@ namespace Decklists.Providers
             catch { }
             finally
             {
-                e.Result = card.ToString();
+                e.Result = card.ToString();                
             }
 
         }

@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:static="clr-namespace:Decklists.Static"      
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
-        Title="MainWindow" Height="600" Width="1025">
+        Title="Decklists" Height="600" Width="1025">
     <TabControl>
         <TabItem Header="Prices">
             <Grid>

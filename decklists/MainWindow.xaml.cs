@@ -94,6 +94,7 @@ namespace Decklists
             {
                 p.PersistData();
             }
+            DownloadProgressPercentage = 100;
             Static.Database.Instance.SaveToJSON();
             btnDownload.IsEnabled = true;
         }

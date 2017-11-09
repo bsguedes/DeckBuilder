@@ -47,8 +47,7 @@ namespace Decklists.Providers
 
     public class DownloadManager
     {
-        public event EventHandler DownloadCompleted;
-
+        public event RunWorkerCompletedEventHandler DownloadCompleted;
         public event ProgressChangedEventHandler ProgressChanged;
 
         private int max_download = 0;
@@ -65,13 +64,9 @@ namespace Decklists.Providers
                     ProgressChanged?.Invoke(this, new ProgressChangedEventArgs(current_download * 100 / max_download, null));
                     if(current_download == max_download)
                     {
-                        DownloadCompleted?.Invoke(this, null);
+                        DownloadCompleted?.Invoke(this, new RunWorkerCompletedEventArgs(providers, null, false));
                     }
-                };
-                p.ProviderDownloaded += (sender, e) =>
-                {
-                    (sender as ProviderBase).PersistData();
-                };
+                };                
                 foreach (Collection c in collections)
                 {                    
                     p.DownloadCollection(c);

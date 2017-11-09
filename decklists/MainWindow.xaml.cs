@@ -88,8 +88,12 @@ namespace Decklists
             dm.Download(providers, collections);
         }
 
-        private void Dm_DownloadCompleted(object sender, EventArgs e)
+        private void Dm_DownloadCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
+            foreach( ProviderBase p in (e.Result as IEnumerable<ProviderBase>))
+            {
+                p.PersistData();
+            }
             Static.Database.Instance.SaveToJSON();
             btnDownload.IsEnabled = true;
         }

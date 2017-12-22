@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace scripts
 {
@@ -25,15 +22,18 @@ namespace scripts
         public void Download()
         {
             for (int i = start; i <= end; i++)
-            {
-                RequestData(i, string.Format(@"http://chucktcg.com.br/?view=ecom/item&cardP={0}", i));
-            }
+            {                
+                RequestData(i, string.Format(@"http://chucktcg.com.br/?view=ecom/item&cardP={0}", i));                
+            }            
         }
 
-        private async void RequestData(int index, string uri)
+        private void RequestData(int index, string uri)
         {
+            try
+            {
+
             var client = new WebClient();
-            string data = await client.DownloadStringTaskAsync(uri);
+            string data = client.DownloadString(uri);
             int start = data.IndexOf("<head><title>");
             int end = data.IndexOf("</title>");
             string r = data.Substring(start + 13, end - start - 25);
@@ -49,7 +49,12 @@ namespace scripts
                 }
             }
             Console.WriteLine(string.Format("{0};{1}", index, r));
-            Results.Add(index, r);
+            Results.Add(index, r);            
+            }
+            catch
+            {
+
+            }
         }
 
     }

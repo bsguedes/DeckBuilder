@@ -52,5 +52,23 @@
     "data": {
       "collection_id_liga_magic": 99
     }
+  },
+  {
+    "id": 704,
+    "abbr": "SM3.5",
+    "name": "Shining Legends",
+    "max": 73,
+    "data": {
+      "collection_id_liga_magic": 105
+    }
+  },
+  {
+    "id": 705,
+    "abbr": "SM4",
+    "name": "Crimson Invasion",
+    "max": 111,
+    "data": {
+      "collection_id_liga_magic": 104
+    }
   }
 ]

@@ -38,7 +38,8 @@ namespace Decklists.Providers
                 new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards)),
                 new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames)),
                 new ProviderDescriptor("Epic Games", 3, typeof(EpicGame)),
-                new ProviderDescriptor("Bazar de Bagdá", 4, typeof(BazarDeBagda))
+                new ProviderDescriptor("Bazar de Bagdá", 4, typeof(BazarDeBagda)),
+                new ProviderDescriptor("Chuck TCG", 5, typeof(ChuckTCG))
             };
         }
         

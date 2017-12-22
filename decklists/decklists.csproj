@@ -58,6 +58,7 @@
     </ApplicationDefinition>
     <Compile Include="Cards\Quotation.cs" />
     <Compile Include="Providers\BazarDeBagda.cs" />
+    <Compile Include="Providers\ChuckTCG.cs" />
     <Compile Include="Providers\LigaMagicProvider.cs" />
     <Compile Include="Providers\EpicGame.cs" />
     <Compile Include="Providers\PkmnCards.cs" />

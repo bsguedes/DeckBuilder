@@ -58,7 +58,7 @@ namespace Decklists
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void StartDownload_Click(object sender, RoutedEventArgs e)
         {
             btnDownload.IsEnabled = false;
             DownloadProgressPercentage = 0;
@@ -82,10 +82,17 @@ namespace Decklists
                 }
             }
 
-            DownloadManager dm = new DownloadManager();
-            dm.DownloadManagerProgressChanged += Dm_ProgressChanged;
-            dm.DownloadManagerCompleted += Dm_DownloadCompleted;
-            dm.Download(providers, collections);
+            if (providers.Count == 0 || collections.Count == 0)
+            {
+                btnDownload.IsEnabled = true;
+            }
+            else
+            {
+                DownloadManager dm = new DownloadManager();
+                dm.DownloadManagerProgressChanged += Dm_ProgressChanged;
+                dm.DownloadManagerCompleted += Dm_DownloadCompleted;
+                dm.Download(providers, collections);
+            }
         }
 
         private void Dm_DownloadCompleted(object sender, RunWorkerCompletedEventArgs e)
@@ -108,43 +115,105 @@ namespace Decklists
         {
             if (e.AddedItems.Count == 1 && e.AddedItems[0] is Card)
             {
-                uint cid = (e.AddedItems[0] as Card).UniqueID;
-                List<Quotation> new_quotes = new List<Quotation>();
-                foreach (Quotation q in Static.Database.Instance.Quotations)
+                Card card = (e.AddedItems[0] as Card);
+
+                FilterQuotations(card);
+                UpdateCardPicture(card);                
+            }
+        }
+
+        private void FilterQuotations(Card card)
+        {
+            uint cid = card.UniqueID;
+            Dictionary<uint, List<Quotation>> all_quotes = new Dictionary<uint, List<Quotation>>();
+            List<Quotation> new_quotes = new List<Quotation>();
+            foreach (Quotation q in Static.Database.Instance.Quotations)
+            {
+                if (q.CardID == cid && q.ProviderID != Static.Database.Instance.Providers.First(x => typeof(PkmnCards) == x.Type).ID)
                 {
-                    if (q.CardID == cid && q.ProviderID != Static.Database.Instance.Providers.First(x => typeof(PkmnCards) == x.Type).ID) 
+                    new_quotes.Add(q);
+                    if (!all_quotes.ContainsKey(q.ProviderID))
                     {
-                        new_quotes.Add(q);
-                        if ( OnlyRecentValue )
-                        {
-                            Quotation max = new_quotes.Where(x => x.ProviderID == q.ProviderID).OrderByDescending(y => y.Timestamp).First();
-                            new_quotes.RemoveAll(x => x.ProviderID == max.ProviderID && x.Timestamp < max.Timestamp);
-                        }                        
+                        all_quotes.Add(q.ProviderID, new List<Quotation>());
+                    }
+                    all_quotes[q.ProviderID].Add(q);
+
+                    if (OnlyRecentValue)
+                    {
+                        Quotation max = new_quotes.Where(x => x.ProviderID == q.ProviderID).OrderByDescending(y => y.Timestamp).First();
+                        new_quotes.RemoveAll(x => x.ProviderID == max.ProviderID && x.Timestamp < max.Timestamp);
                     }
                 }
-                FilteredQuotations.Clear();
-                foreach (Quotation q in new_quotes.OrderBy(x => float.Parse(x.Value)).ThenBy(x => x.ProviderID).ThenByDescending(x => x.Timestamp))
+            }
+            FilteredQuotations.Clear();
+            foreach (Quotation q in new_quotes.OrderBy(x => float.Parse(x.Value)).ThenBy(x => x.ProviderID).ThenByDescending(x => x.Timestamp))
+            {
+                FilteredQuotations.Add(q);
+            }
+
+            PlotChart(card, all_quotes);
+        }
+
+        private void PlotChart(Card card, Dictionary<uint, List<Quotation>> all_quotes)
+        {
+            OxyPlot.Wpf.PlotView plotView = new OxyPlot.Wpf.PlotView();
+
+            OxyPlot.PlotModel plot = new OxyPlot.PlotModel()
+            {
+                LegendPlacement = OxyPlot.LegendPlacement.Outside,
+                LegendPosition = OxyPlot.LegendPosition.BottomCenter,
+                LegendOrientation = OxyPlot.LegendOrientation.Horizontal
+                
+            };
+            plot.Axes.Add(new OxyPlot.Axes.DateTimeAxis());
+            plot.Axes.Add(new OxyPlot.Axes.LinearAxis() { Minimum = 0 });                        
+            List<DateTime> dates = new List<DateTime>();
+            List<double> values = new List<double>();
+            foreach(var provider in all_quotes)
+            {
+                OxyPlot.Series.LineSeries ls = new OxyPlot.Series.LineSeries()
                 {
-                    FilteredQuotations.Add(q);
+                    Title = Static.Database.Instance.Providers.First(x => x.ID == provider.Key).Name,
+                    CanTrackerInterpolatePoints = false,
+                    MarkerSize = 2,
+                    MarkerType = OxyPlot.MarkerType.Circle,
+                    TrackerFormatString = "{0}\n{2:dd/MM/yyyy}\nR$ {4:F2}"
+                };
+                foreach (Quotation q in provider.Value)
+                {
+                    DateTime dt = DateTime.FromFileTimeUtc(q.Timestamp);
+                    double vl = double.Parse(q.Value);
+                    dates.Add(dt);
+                    values.Add(vl);
+                    ls.Points.Add(OxyPlot.Axes.DateTimeAxis.CreateDataPoint(dt,vl));
                 }
-                string dir = string.Format("Images/{0}", (e.AddedItems[0] as Card).Collection.Abbreviation);
-                if (Directory.Exists(dir))
+                plot.Series.Add(ls);                
+            }
+
+            plot.Axes[0].Minimum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Min().AddDays(-1));
+            plot.Axes[0].Maximum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Max().AddDays(1));
+            plot.Axes[1].Maximum = values.Max() * 1.1;
+
+            plotView.Model = plot;
+            plotGrid.Children.Clear();
+            plotGrid.Children.Add(plotView);
+        }
+
+        private void UpdateCardPicture(Card card)
+        {
+            string dir = string.Format("Images/{0}", card.Collection.Abbreviation);
+            if (Directory.Exists(dir))
+            {
+                string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0:D3}.jpg", card.Index));
+                Uri uri = new Uri(path);
+                if (File.Exists(path))
                 {
-                    string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0:D3}.jpg", (e.AddedItems[0] as Card).Index));
-                    Uri uri = new Uri(path);
-                    if (File.Exists(path))
+                    try
                     {
-                        try
-                        {
-                            BitmapImage bitmap = new BitmapImage(uri);
-                            cardImage.Source = bitmap;
-                        }
-                        catch
-                        {
-                            cardImage.Source = null;
-                        }
+                        BitmapImage bitmap = new BitmapImage(uri);
+                        cardImage.Source = bitmap;
                     }
-                    else
+                    catch
                     {
                         cardImage.Source = null;
                     }
@@ -153,6 +222,10 @@ namespace Decklists
                 {
                     cardImage.Source = null;
                 }
+            }
+            else
+            {
+                cardImage.Source = null;
             }
         }
 

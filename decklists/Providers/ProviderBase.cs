@@ -30,20 +30,18 @@ namespace Decklists.Providers
     }
 
     public class Provider
-    {
-        public Provider()
+    {        
+        public IEnumerable<ProviderDescriptor> ProviderList
         {
-            this.ProviderList = new List<ProviderDescriptor>
+            get
             {
-                new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards)),
-                new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames)),
-                new ProviderDescriptor("Epic Games", 3, typeof(EpicGame)),
-                new ProviderDescriptor("Bazar de Bagdá", 4, typeof(BazarDeBagda)),
-                new ProviderDescriptor("Chuck TCG", 5, typeof(ChuckTCG))
-            };
+                yield return new ProviderDescriptor("PkmnCards", 1, typeof(PkmnCards));
+                yield return new ProviderDescriptor("Playground Games", 2, typeof(PlaygroundGames));
+                yield return new ProviderDescriptor("Epic Games", 3, typeof(EpicGame));
+                yield return new ProviderDescriptor("Bazar de Bagdá", 4, typeof(BazarDeBagda));
+                yield return new ProviderDescriptor("Chuck TCG", 5, typeof(ChuckTCG));
+            }
         }
-        
-        public List<ProviderDescriptor> ProviderList { get; private set; }
     }
 
     public class DownloadManager

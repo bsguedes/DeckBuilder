@@ -1,12 +1,9 @@
-﻿using Newtonsoft.Json;
-using System;
+﻿using Decklists.Providers;
+using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Runtime.Serialization.Json;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Decklists.Static
 {
@@ -16,14 +13,14 @@ namespace Decklists.Static
         public List<Collection> Collections { get; private set; }
         public List<Card> Cards { get; private set; }
         public List<Quotation> Quotations { get; private set; }
-        public List<Providers.ProviderDescriptor> Providers { get; private set; }
+        public List<ProviderDescriptor> Providers { get; private set; }
 
         private Database()
         {
             this.Collections = new List<Collection>();
             this.Cards = new List<Card>();
             this.Quotations = new List<Quotation>();
-            this.Providers = new Providers.Provider().ProviderList;
+            this.Providers = new Provider().ProviderList.ToList();
         }
 
         private static Database _instance;

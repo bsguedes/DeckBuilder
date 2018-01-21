@@ -70,5 +70,32 @@
     "data": {
       "collection_id_liga_magic": 104
     }
+  },
+  {
+    "id": 607,
+    "abbr": "XY8",
+    "name": "BreakTHROUGH",
+    "max": 162,
+    "data": {
+      "collection_id_liga_magic": 92
+    }
+  },
+  {
+    "id": 608,
+    "abbr": "XY9",
+    "name": "BreakPOINT",
+    "max": 122,
+    "data": {
+      "collection_id_liga_magic": 94
+    }
+  },
+  {
+    "id": 609,
+    "abbr": "XY9.5",
+    "name": "Generations",
+    "max": 83,
+    "data": {
+      "collection_id_liga_magic": 95
+    }
   }
 ]

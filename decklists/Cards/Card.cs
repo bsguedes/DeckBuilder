@@ -1,10 +1,7 @@
 ﻿using Newtonsoft.Json;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Decklists
 {
@@ -17,6 +14,9 @@ namespace Decklists
         [DataMember(Name = "index")]
         public int Index { get; private set; }
 
+        [DataMember(Name = "str_index")]
+        public string StringIndex { get; private set; }
+
         [DataMember(Name = "name")]
         public string Name { get; private set; }
 
@@ -25,13 +25,14 @@ namespace Decklists
 
         [DataMember(Name = "modifiers")]
         public Dictionary<string, string> Modifiers { get; set; }
-        
+
         [JsonIgnore]
         public Collection Collection => Static.Database.Instance.Collections.First(x => x.UniqueID == CollectionID);
 
-        public Card( int index, string name, uint col, Dictionary<string, string> modifiers )
-        {            
+        public Card(int index, string str_index, string name, uint col, Dictionary<string, string> modifiers)
+        {
             this.Index = index;
+            this.StringIndex = str_index;
             this.Name = name;
             this.CollectionID = col;
             this.Modifiers = modifiers ?? new Dictionary<string, string>();
@@ -40,7 +41,7 @@ namespace Decklists
 
         public override string ToString()
         {
-            return string.Format( "{0} - {1}", this.Index, this.Name );
+            return string.Format("{0} - {1}", this.StringIndex, this.Name);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace Decklists.Providers
 
         protected override Uri AssembleURL( Card card )
         {
-            return new Uri( string.Format( "{0}{1} {2} {3}", BASE_URL, card.Name, card.Collection.Name, card.Index ).Replace(" ", "+") );
+            return new Uri( string.Format( "{0}{1} {2} {3}", BASE_URL, card.Name, card.Collection.Name, card.StringIndex ).Replace(" ", "+") );
         }
 
         protected override void HandleHtmlCodeForProvider( Card card, string htmlCode )
@@ -30,7 +30,7 @@ namespace Decklists.Providers
             {
                 Directory.CreateDirectory(string.Format("Images/{0}", card.Collection.Abbreviation));
             }
-            string fileName = "Images/" + card.Collection.Abbreviation + "/" + card.Index.ToString( "D3" ) + ".jpg";
+            string fileName = "Images/" + card.Collection.Abbreviation + "/" + card.StringIndex + ".jpg";
             if (!File.Exists(fileName))
             {
                 using (WebClient client = new WebClient())

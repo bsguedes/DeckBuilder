@@ -841,7 +841,7 @@ number;code;name;ecom
 101;XY11;Gardevoir Spirit Link;1280
 102;XY11;Greedy Dice;4172
 103;XY11;Ninja Boy;4178
-104;XY11;Pok�mon Ranger;4197
+104;XY11;Pokémon Ranger;4197
 105;XY11;Special Charge;4182
 106;XY11;Steelix Spirit Link;4183
 107;XY11;Volcanion-EX;4192
@@ -850,7 +850,7 @@ number;code;name;ecom
 110;XY11;Magearna-EX;4195
 111;XY11;Gardevoir-EX;1272
 112;XY11;M Gardevoir-EX;1273
-113;XY11;Pok�mon Ranger;4197
+113;XY11;Pokémon Ranger;4197
 114;XY11;Professor Sycamore;641
 115;XY11;Volcanion-EX;4192
 116;XY11;Gardevoir-EX;1272
@@ -1040,8 +1040,8 @@ number;code;name;ecom
 60;SM3.5;Great Ball;637
 61;SM3.5;Hau;4255
 62;SM3.5;Lillie;4260
-63;SM3.5;Pok�mon Breeder;542
-64;SM3.5;Pok�mon Catcher;752
+63;SM3.5;Pokémon Breeder;542
+64;SM3.5;Pokémon Catcher;752
 65;SM3.5;Sophocles;4394
 66;SM3.5;Super Scoop Up;410
 67;SM3.5;Switch;360
@@ -1050,9 +1050,411 @@ number;code;name;ecom
 70;SM3.5;Warp Energy;705
 71;SM3.5;Entei-GX;4409
 72;SM3.5;Mewtwo-GX;4412
-73;SM3.5;Pok�mon Breeder;542
+73;SM3.5;Pokémon Breeder;542
 74;SM3.5;Entei-GX;4409
 75;SM3.5;Raichu-GX;4411
 76;SM3.5;Mewtwo-GX;4412
 77;SM3.5;Zoroark-GX;4416
 78;SM3.5;Mewtwo-GX;4412
+1;XY8;Paras;495
+2;XY8;Parasect;489
+3;XY8;Pinsir;297
+4;XY8;Cacnea;200
+5;XY8;Pansage;567
+6;XY8;Simisage;568
+7;XY8;Chespin;569
+8;XY8;Chespin;569
+9;XY8;Chespin;569
+10;XY8;Quilladin;570
+11;XY8;Chesnaught;571
+12;XY8;Chesnaught BREAK;3857
+13;XY8;Scatterbug;572
+14;XY8;Spewpa;573
+15;XY8;Vivillon;574
+16;XY8;Skiddo;575
+17;XY8;Gogoat;576
+18;XY8;Cyndaquil;1082
+19;XY8;Quilava;1078
+20;XY8;Typhlosion;904
+21;XY8;Houndoom-EX;3909
+22;XY8;M Houndoom-EX;3910
+23;XY8;Pansear;577
+24;XY8;Simisear;578
+25;XY8;Fennekin;579
+26;XY8;Braixen;580
+27;XY8;Goldeen;494
+28;XY8;Seaking;491
+29;XY8;Staryu;497
+30;XY8;Starmie;486
+31;XY8;Remoraid;496
+32;XY8;Remoraid;496
+33;XY8;Octillery;488
+34;XY8;Glalie-EX;3911
+35;XY8;M Glalie-EX;3912
+36;XY8;Piplup;16
+37;XY8;Prinplup;49
+38;XY8;Empoleon;50
+39;XY8;Snover;696
+40;XY8;Abomasnow;679
+41;XY8;Panpour;586
+42;XY8;Simipour;587
+43;XY8;Vanillite;717
+44;XY8;Vanillish;718
+45;XY8;Vanilluxe;812
+46;XY8;Froakie;588
+47;XY8;Frogadier;589
+48;XY8;Pikachu;15
+49;XY8;Raichu;3
+50;XY8;Raichu BREAK;3913
+51;XY8;Magnemite;453
+52;XY8;Magnemite;453
+53;XY8;Magneton;431
+54;XY8;Magnezone;662
+55;XY8;Raikou;261
+56;XY8;Stunfisk;95
+57;XY8;Dedenne;1172
+58;XY8;Gastly;448
+59;XY8;Haunter;438
+60;XY8;Gengar;425
+61;XY8;Mewtwo-EX;69
+62;XY8;Mewtwo-EX;69
+63;XY8;M Mewtwo-EX;3914
+64;XY8;M Mewtwo-EX;3914
+65;XY8;Misdreavus;72
+66;XY8;Mismagius;73
+67;XY8;Wobbuffet;433
+68;XY8;Ralts;74
+69;XY8;Kirlia;75
+70;XY8;Cresselia;149
+71;XY8;Woobat;78
+72;XY8;Swoobat;79
+73;XY8;Elgyem;817
+74;XY8;Beheeyem;818
+75;XY8;Sandshrew;537
+76;XY8;Sandslash;957
+77;XY8;Cubone;529
+78;XY8;Marowak;521
+79;XY8;Marowak BREAK;3915
+80;XY8;Swinub;498
+81;XY8;Piloswine;490
+82;XY8;Mamoswine;682
+83;XY8;Hippopotas;395
+84;XY8;Gallade;93
+85;XY8;Meloetta;90
+86;XY8;Pancham;1654
+87;XY8;Hawlucha;1430
+88;XY8;Cacturne;202
+89;XY8;Zorua;100
+90;XY8;Zorua;100
+91;XY8;Zoroark;101
+92;XY8;Zoroark BREAK;3916
+93;XY8;Inkay;607
+94;XY8;Yveltal;609
+95;XY8;Bronzor;389
+96;XY8;Bronzong;369
+97;XY8;Mr. Mime;514
+98;XY8;Snubbull;223
+99;XY8;Granbull;179
+100;XY8;Ralts;74
+101;XY8;Flabébé;1960
+102;XY8;Floette;1961
+103;XY8;Florges;1962
+104;XY8;Florges BREAK;3917
+105;XY8;Spritzee;617
+106;XY8;Aromatisse;618
+107;XY8;Xerneas;621
+108;XY8;Axew;829
+109;XY8;Axew;829
+110;XY8;Fraxure;830
+111;XY8;Haxorus;738
+112;XY8;Noivern;1661
+113;XY8;Noivern BREAK;3918
+114;XY8;Meowth;532
+115;XY8;Doduo;530
+116;XY8;Doduo;530
+117;XY8;Dodrio;517
+118;XY8;Snorlax;515
+119;XY8;Hoothoot;1083
+120;XY8;Noctowl;1072
+121;XY8;Teddiursa;128
+122;XY8;Ursaring;129
+123;XY8;Smeargle;303
+124;XY8;Swablu;111
+125;XY8;Starly;400
+126;XY8;Staravia;385
+127;XY8;Staraptor;685
+128;XY8;Chatot;390
+129;XY8;Rufflet;1549
+130;XY8;Braviary;1550
+131;XY8;Noibat;1664
+132;XY8;Noibat;1664
+133;XY8;Assault Vest;3919
+134;XY8;Brigette;3920
+135;XY8;Buddy-Buddy Rescue;3921
+136;XY8;Fisherman;1085
+137;XY8;Float Stone;1110
+138;XY8;Giovanni's Scheme;3922
+139;XY8;Glalie Spirit Link;3923
+140;XY8;Heavy Ball;1423
+141;XY8;Heavy Boots;3924
+142;XY8;Houndoom Spirit Link;3925
+143;XY8;Judge;1405
+144;XY8;Mewtwo Spirit Link;3926
+145;XY8;Parallel City;3927
+146;XY8;Professor's Letter;642
+147;XY8;Reserved Ticket;3928
+148;XY8;Skyla;1947
+149;XY8;Super Rod;835
+150;XY8;Town Map;1948
+151;XY8;Burning Energy;3929
+152;XY8;Rainbow Energy;469
+153;XY8;Houndoom-EX;3909
+154;XY8;M Houndoom-EX;3910
+155;XY8;Glalie-EX;3911
+156;XY8;M Glalie-EX;3912
+157;XY8;Mewtwo-EX;69
+158;XY8;Mewtwo-EX;69
+159;XY8;M Mewtwo-EX;3914
+160;XY8;M Mewtwo-EX;3914
+161;XY8;Brigette;3920
+162;XY8;Giovanni's Scheme;3922
+163;XY8;Mewtwo-EX;69
+164;XY8;Mewtwo-EX;69
+1;XY9;Chikorita;1081
+2;XY9;Bayleef;1076
+3;XY9;Meganium;1075
+4;XY9;Seedot;454
+5;XY9;Kricketot;879
+6;XY9;Kricketune;876
+7;XY9;Petilil;806
+8;XY9;Lilligant;807
+9;XY9;Durant;828
+10;XY9;Growlithe;122
+11;XY9;Arcanine;267
+12;XY9;Numel;936
+13;XY9;Camerupt;923
+14;XY9;Emboar-EX;3979
+15;XY9;Heatmor;713
+16;XY9;Psyduck;334
+17;XY9;Golduck;273
+18;XY9;Golduck BREAK;3980
+19;XY9;Slowpoke;221
+20;XY9;Slowbro;193
+21;XY9;Slowking;170
+22;XY9;Shellder;338
+23;XY9;Shellder;338
+24;XY9;Cloyster;288
+25;XY9;Staryu;497
+26;XY9;Gyarados-EX;3981
+27;XY9;M Gyarados-EX;3982
+28;XY9;Lapras;163
+29;XY9;Corsola;320
+30;XY9;Suicune;264
+31;XY9;Palkia-EX;1455
+32;XY9;Manaphy-EX;3983
+33;XY9;Tympole;55
+34;XY9;Palpitoad;56
+35;XY9;Seismitoad;57
+36;XY9;Ducklett;719
+37;XY9;Swanna;720
+38;XY9;Froakie;588
+39;XY9;Frogadier;589
+40;XY9;Greninja;590
+41;XY9;Greninja BREAK;3984
+42;XY9;Electabuzz;323
+43;XY9;Electivire;270
+44;XY9;Shinx;656
+45;XY9;Luxio;988
+46;XY9;Luxray;1001
+47;XY9;Luxray BREAK;3985
+48;XY9;Blitzle;245
+49;XY9;Zebstrika;816
+50;XY9;Drowzee;204
+51;XY9;Hypno;161
+52;XY9;Espeon-EX;3986
+53;XY9;Skorupi;695
+54;XY9;Drapion;681
+55;XY9;Sigilyph;80
+56;XY9;Trubbish;81
+57;XY9;Garbodor;82
+58;XY9;Espurr;1957
+59;XY9;Meowstic;1690
+60;XY9;Honedge;614
+61;XY9;Doublade;615
+62;XY9;Aegislash;616
+63;XY9;Skrelp;1958
+64;XY9;Phantump;597
+65;XY9;Trevenant;598
+66;XY9;Trevenant BREAK;3987
+67;XY9;Sudowoodo;386
+68;XY9;Gible;14
+69;XY9;Gabite;8
+70;XY9;Garchomp;1
+71;XY9;Pancham;1654
+72;XY9;Nuzleaf;441
+73;XY9;Shiftry;427
+74;XY9;Darkrai-EX;99
+75;XY9;Pangoro;1658
+76;XY9;Scizor-EX;3988
+77;XY9;M Scizor-EX;3989
+78;XY9;Mawile;166
+79;XY9;Ferroseed;1420
+80;XY9;Ferrothorn;1806
+81;XY9;Clefairy;319
+82;XY9;Clefable;509
+83;XY9;Togekiss-EX;3990
+84;XY9;Spritzee;617
+85;XY9;Aromatisse;618
+86;XY9;Dragalge;1679
+87;XY9;Rattata;336
+88;XY9;Raticate;299
+89;XY9;Raticate BREAK;3991
+90;XY9;Dunsparce;436
+91;XY9;Stantler;345
+92;XY9;Ho-Oh-EX;1545
+93;XY9;Glameow;207
+94;XY9;Purugly;189
+95;XY9;Furfrou;633
+96;XY9;All-Night Party;3992
+97;XY9;Bursting Balloon;3993
+98;XY9;Delinquent;3994
+99;XY9;Fighting Fury Belt;3995
+100;XY9;Great Ball;637
+101;XY9;Gyarados Spirit Link;3996
+102;XY9;Max Elixir;3997
+103;XY9;Max Potion;1120
+104;XY9;Misty's Determination;3998
+105;XY9;Pokemon Catcher;4272
+106;XY9;Potion;359
+107;XY9;Professor Sycamore;641
+108;XY9;Psychic's Third Eye;3999
+109;XY9;Puzzle of Time;4000
+110;XY9;Reverse Valley;4001
+111;XY9;Scizor Spirit Link;4002
+112;XY9;Tierno;1189
+113;XY9;Splash Energy;4003
+114;XY9;Gyarados-EX;3981
+115;XY9;M Gyarados-EX;3982
+116;XY9;Manaphy-EX;3983
+117;XY9;Espeon-EX;3986
+118;XY9;Darkrai-EX;99
+119;XY9;Scizor-EX;3988
+120;XY9;M Scizor-EX;3989
+121;XY9;Ho-Oh-EX;1545
+122;XY9;Skyla;1947
+123;XY9;Gyarados-EX;3981
+1;XY9.5;Venusaur-EX;563
+2;XY9.5;M Venusaur-EX;564
+3;XY9.5;Caterpie;201
+4;XY9.5;Metapod;186
+5;XY9.5;Butterfree;156
+6;XY9.5;Paras;495
+7;XY9.5;Parasect;489
+8;XY9.5;Tangela;18
+9;XY9.5;Pinsir;297
+10;XY9.5;Leafeon-EX;4023
+11;XY9.5;Charizard-EX;1680
+12;XY9.5;M Charizard-EX;1952
+13;XY9.5;Ninetales-EX;4024
+14;XY9.5;Ponyta;694
+15;XY9.5;Rapidash;683
+16;XY9.5;Magmar;328
+17;XY9.5;Blastoise-EX;584
+18;XY9.5;M Blastoise-EX;585
+19;XY9.5;Shellder;338
+20;XY9.5;Cloyster;288
+21;XY9.5;Krabby;214
+22;XY9.5;Magikarp;46
+23;XY9.5;Gyarados;47
+24;XY9.5;Vaporeon-EX;4025
+25;XY9.5;Articuno;48
+26;XY9.5;Pikachu;15
+27;XY9.5;Raichu;3
+28;XY9.5;Jolteon-EX;4026
+29;XY9.5;Zapdos;61
+30;XY9.5;Zubat;499
+31;XY9.5;Golbat;487
+32;XY9.5;Slowpoke;221
+33;XY9.5;Gastly;448
+34;XY9.5;Haunter;438
+35;XY9.5;Gengar;425
+36;XY9.5;Jynx;275
+37;XY9.5;Meowstic-EX;4027
+38;XY9.5;Diglett;321
+39;XY9.5;Dugtrio;269
+40;XY9.5;Machop;451
+41;XY9.5;Machoke;440
+42;XY9.5;Machamp;426
+43;XY9.5;Geodude;449
+44;XY9.5;Graveler;437
+45;XY9.5;Golem;274
+46;XY9.5;Golem-EX;4028
+47;XY9.5;Hitmonlee;1139
+48;XY9.5;Hitmonchan;510
+49;XY9.5;Rhyhorn;536
+50;XY9.5;Clefairy;319
+51;XY9.5;Clefable;509
+52;XY9.5;Mr. Mime;514
+53;XY9.5;Meowth;532
+54;XY9.5;Persian;523
+55;XY9.5;Doduo;530
+56;XY9.5;Dodrio;517
+57;XY9.5;Tauros;527
+58;XY9.5;Snorlax;515
+59;XY9.5;Clemont;4029
+60;XY9.5;Crushing Hammer;119
+61;XY9.5;Energy Switch;120
+62;XY9.5;Evosoda;635
+63;XY9.5;Imakuni?;4030
+64;XY9.5;Maintenance;549
+65;XY9.5;Max Revive;639
+66;XY9.5;Olympia;4031
+67;XY9.5;Poké Ball;408
+68;XY9.5;Pokémon Center Lady;1969
+69;XY9.5;Pokémon Fan Club;861
+70;XY9.5;Revitalizer;4032
+71;XY9.5;Red Card;643
+72;XY9.5;Shauna;646
+73;XY9.5;Team Flare Grunt;647
+74;XY9.5;Double Colorless Energy;121
+75;XY9.5;Grass Energy;559
+76;XY9.5;Fire Energy;558
+77;XY9.5;Water Energy;562
+78;XY9.5;Lightning Energy;560
+79;XY9.5;Psychic Energy;561
+80;XY9.5;Fighting Energy;557
+81;XY9.5;Darkness Energy;361
+82;XY9.5;Metal Energy;362
+83;XY9.5;Fairy Energy;648
+RC1;XY9.5;Chikorita;1081
+RC2;XY9.5;Shroomish;341
+RC3;XY9.5;Charmander;33
+RC4;XY9.5;Charmeleon;34
+RC5;XY9.5;Charizard;35
+RC6;XY9.5;Flareon-EX;4033
+RC7;XY9.5;Snorunt;764
+RC8;XY9.5;Froslass;999
+RC9;XY9.5;Raichu;3
+RC10;XY9.5;Dedenne;1172
+RC11;XY9.5;Wobbuffet;433
+RC12;XY9.5;Gulpin;1006
+RC13;XY9.5;Jirachi;900
+RC14;XY9.5;Espurr;1957
+RC15;XY9.5;Meowstic;1690
+RC16;XY9.5;Yveltal;609
+RC17;XY9.5;Flabébé;1960
+RC18;XY9.5;Floette;1961
+RC19;XY9.5;Swirlix;619
+RC20;XY9.5;Slurpuff;620
+RC21;XY9.5;Sylveon-EX;4034
+RC22;XY9.5;Diancie;1173
+RC23;XY9.5;Swablu;111
+RC24;XY9.5;Altaria;103
+RC25;XY9.5;Fletchling;632
+RC26;XY9.5;Floral Crown;4035
+RC27;XY9.5;Wally;1446
+RC28;XY9.5;Flareon-EX;4033
+RC29;XY9.5;Pikachu;15
+RC30;XY9.5;Gardevoir-EX;1272
+RC31;XY9.5;M Gardevoir-EX;1273
+RC32;XY9.5;Sylveon-EX;4034

@@ -15,7 +15,7 @@ namespace Decklists.Providers
 
         protected override Uri AssembleURL(Card card)
         {
-            return new Uri(string.Format(@"{3}?view=ecom/item&edicaoP={0}&cardID={1}&cardP={2}", card.Collection.Modifiers["collection_id_liga_magic"], card.Index, card.Modifiers["ecom"], LigaMagicProviderRootURL));
+            return new Uri(string.Format(@"{3}?view=ecom/item&edicaoP={0}&cardID={1}&cardP={2}", card.Collection.Modifiers["collection_id_liga_magic"], card.StringIndex, card.Modifiers["ecom"], LigaMagicProviderRootURL));
         }
 
         protected override void HandleHtmlCodeForProvider(Card card, string htmlCode)

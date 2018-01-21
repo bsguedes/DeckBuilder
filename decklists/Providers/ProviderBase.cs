@@ -93,7 +93,7 @@ namespace Decklists.Providers
         public void DownloadCollections(IEnumerable<Collection> collections)
         {
             var collectionIds = collections.Select(x => x.UniqueID);
-            var cardsFromCollection = Static.Database.Instance.Cards.Where(x => collectionIds.Contains( x.CollectionID )).OrderBy(x => x.CollectionID).ThenBy(y => y.Index);
+            var cardsFromCollection = Static.Database.Instance.Cards.Where(x => collectionIds.Contains( x.CollectionID )).OrderBy(x => x.CollectionID).ThenBy(y => y.StringIndex);
             int expectation = cardsFromCollection.Count();
 
             bw_download = new BackgroundWorker();

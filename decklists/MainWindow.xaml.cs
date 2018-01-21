@@ -5,17 +5,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace Decklists
 {
@@ -23,14 +15,14 @@ namespace Decklists
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window, INotifyPropertyChanged
-    {                
+    {
         public ObservableCollection<Quotation> FilteredQuotations { get; set; }
 
         public ObservableCollection<Card> FilteredCards { get; set; }
 
         public bool OnlyRecentValue { get; set; }
 
-        private int _percentage;      
+        private int _percentage;
         public int DownloadProgressPercentage
         {
             get
@@ -48,7 +40,7 @@ namespace Decklists
 
         public MainWindow()
         {
-            Static.Loader.LoadDatabase();                        
+            Static.Loader.LoadDatabase();
             Static.Loader.LoadStaticInfo();
             Static.Database.Instance.SaveToJSON();
 
@@ -97,7 +89,7 @@ namespace Decklists
 
         private void Dm_DownloadCompleted(object sender, RunWorkerCompletedEventArgs e)
         {
-            foreach( ProviderBase p in (e.Result as IEnumerable<ProviderBase>))
+            foreach (ProviderBase p in (e.Result as IEnumerable<ProviderBase>))
             {
                 p.PersistData();
             }
@@ -118,7 +110,7 @@ namespace Decklists
                 Card card = (e.AddedItems[0] as Card);
 
                 FilterQuotations(card);
-                UpdateCardPicture(card);                
+                UpdateCardPicture(card);
             }
         }
 
@@ -163,13 +155,13 @@ namespace Decklists
                 LegendPlacement = OxyPlot.LegendPlacement.Outside,
                 LegendPosition = OxyPlot.LegendPosition.BottomCenter,
                 LegendOrientation = OxyPlot.LegendOrientation.Horizontal
-                
+
             };
             plot.Axes.Add(new OxyPlot.Axes.DateTimeAxis());
-            plot.Axes.Add(new OxyPlot.Axes.LinearAxis() { Minimum = 0 });                        
+            plot.Axes.Add(new OxyPlot.Axes.LinearAxis() { Minimum = 0 });
             List<DateTime> dates = new List<DateTime>();
             List<double> values = new List<double>();
-            foreach(var provider in all_quotes)
+            foreach (var provider in all_quotes)
             {
                 OxyPlot.Series.LineSeries ls = new OxyPlot.Series.LineSeries()
                 {
@@ -185,15 +177,17 @@ namespace Decklists
                     double vl = double.Parse(q.Value);
                     dates.Add(dt);
                     values.Add(vl);
-                    ls.Points.Add(OxyPlot.Axes.DateTimeAxis.CreateDataPoint(dt,vl));
+                    ls.Points.Add(OxyPlot.Axes.DateTimeAxis.CreateDataPoint(dt, vl));
                 }
-                plot.Series.Add(ls);                
+                plot.Series.Add(ls);
             }
 
-            plot.Axes[0].Minimum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Min().AddDays(-1));
-            plot.Axes[0].Maximum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Max().AddDays(1));
-            plot.Axes[1].Maximum = values.Max() * 1.1;
-
+            if (dates.Count > 0)
+            {
+                plot.Axes[0].Minimum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Min().AddDays(-1));
+                plot.Axes[0].Maximum = OxyPlot.Axes.DateTimeAxis.ToDouble(dates.Max().AddDays(1));
+                plot.Axes[1].Maximum = values.Max() * 1.1;
+            }
             plotView.Model = plot;
             plotGrid.Children.Clear();
             plotGrid.Children.Add(plotView);
@@ -204,7 +198,7 @@ namespace Decklists
             string dir = string.Format("Images/{0}", card.Collection.Abbreviation);
             if (Directory.Exists(dir))
             {
-                string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0:D3}.jpg", card.Index));
+                string path = System.IO.Path.Combine(Environment.CurrentDirectory, dir, string.Format("{0}.jpg", card.StringIndex));
                 Uri uri = new Uri(path);
                 if (File.Exists(path))
                 {

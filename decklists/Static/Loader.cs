@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Decklists.Static
 {
@@ -26,7 +22,8 @@ namespace Decklists.Static
             foreach (string line in lines.Skip(1))
             {
                 string[] ss = line.Split(';');
-                int index = int.Parse(ss[0]); //number
+                int index = ParseIndex(ss[0]); //number
+                string str_index = ss[0];
                 string collAbbr = ss[1]; //code
                 string name = ss[2]; //name
 
@@ -36,9 +33,18 @@ namespace Decklists.Static
                     dict[sp[i]] = ss[i];
                 }
 
-                Database.Instance.AddCard(new Card(index, name, Database.Instance.Collections.First(x => x.Abbreviation == collAbbr).UniqueID, dict));                
+                Database.Instance.AddCard(new Card(index, str_index, name, Database.Instance.Collections.First(x => x.Abbreviation == collAbbr).UniqueID, dict));
             }
-        }        
+        }
+
+        private static int ParseIndex(string s)
+        {
+            if (s.StartsWith("RC"))
+            {
+                return int.Parse(new string(s.Skip(2).ToArray()));
+            }
+            return int.Parse(s);
+        }
     }
 
 }
